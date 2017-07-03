@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <title>Sample Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+   <div class="container">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-4">
+                    <img src="http://94.23.171.142/absenat/site/public/img/logo-big.png" class="img-responsive" style="margin-top: 6rem;" />
+                </div>
+            </div>
+            <div class="row">
+              <div class="bs-component col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+               <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                  <ul class="nav nav-tabs">
+                      <li class="active"><a href="#login" data-toggle="tab">ورود</a></li>
+                      <li><a href="#register" data-toggle="tab">ثبت نام</a></li>
+                  </ul>
+                </div>
+              <!-- <ul class="nav nav-tabs ">
+                <li ><a href="#login" data-toggle="tab">ورود</a></li>
+                <li><a href="#register" data-toggle="tab">ثبت نام</a></li>
+              </ul> -->
+                <div id="myTabContent" class="tab-content">
+                  <div class="tab-pane fade active in" id="login">
+                    <form >
+                    <div class="row top-padding">
+                      <div class="col-md-6 pull-right">
+                        <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                          <input type="text" value="" name="last_name" class="form-control" placeholder="نام خانوادگی *">
+                        </div>
+                      </div>
+                      <div class="col-md-6 pull-right">
+                        <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                          <input type="text" value="" name="last_name" class="form-control" placeholder="نام خانوادگی *">
+                        </div>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button type="submit" class="right-buffer bottom-buffer btn btn-primary pull-right">ورود</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="tab-pane fade top-padding" id="register">
+                     <form >
+                                        <input type="hidden" name="_token" value="kNKy4YCbeSjZ28n3sURkYOe8i8yYwUl9tommsG4g">
+                                        <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="first_name" class="form-control" placeholder="نام *">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="last_name" class="form-control" placeholder="نام خانوادگی *">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="name" class="form-control" placeholder="نام هنری">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="email" value="" name="email" class="form-control" placeholder="نام پدر *">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="password" value="" name="password" class="form-control" placeholder="جنسیت *">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="password" value="" name="password_conf" class="form-control" placeholder="دین و مذهب">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="وضعیت تاهل *">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="وضعیت اقامت در منطقه آراد">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="سال شروع اقامت در منطقه آزاد">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="مدرک تحصیلی *">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="کد ملی *">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="محل تولد *">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="شماره شناسنامه*">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="تاریخ تولد *">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="رشته ی اصلی هنری *">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="سایر رشته های هنری*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="محل سکونت (آدرس)*">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="شماره همراه*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="محل سکونت (آدرس)*">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="شماره همراه*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="phone" class="form-control" placeholder="شماره تلفن ثابت">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="ایمیل">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                   <!--  <input type="text" value="" name="phone" class="form-control" placeholder="عکس پرسنلی*"> -->
+                                                   <div class="row">
+                                                   <label style="color: black">عکس پرسنلی*:</label>
+                                                       <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pull-right">
+                                                <div class="form-group label-floating rtl col-lg-12 col-md-12">
+                                                    <input type="text" value="" name="cellphone" class="form-control" placeholder="عکس کارت ملی*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-primary pull-right">ثبت نام</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                  </div>
+                </div>
+              </div>
+</div>
+
+              
+    </div>
+  </body>
+</html>

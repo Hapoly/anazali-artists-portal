@@ -1,0 +1,32 @@
+.top-buffer {
+    margin-top: 2rem;
+}
+.top-padding {
+	padding-top: 2rem;	
+}
+.right-buffer{
+	margin-right: 1rem;
+}
+.bottom-buffer{
+	margin-bottom: 1rem;
+}
+body {
+    font-family: '0 Roya', tahoma, Arial;
+}
+.color1{
+	background-color: #2c3e50;
+}
+.slate{
+	background-color: rgba(234, 227, 234, 0.6);
+}
+.tab-content>.active {
+    background-color: rgba(234, 227, 234, 0.6);
+	color: #fff;
+	border-radius: 0.5rem;
+}
+.messagecolor{
+color: #2c3e50;
+}
+th , td{
+	color: black;
+}
