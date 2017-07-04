@@ -27,6 +27,6 @@ body {
 .messagecolor{
 color: #2c3e50;
 }
-th , td{
+th , td , span{
 	color: black;
 }
