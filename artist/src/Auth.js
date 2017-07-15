@@ -23,7 +23,7 @@ class Auth extends Component {
                 <li className="tab col s3"><a href="#register" className="black-text">ثبت نام</a></li>
               </ul>
             </div>
-          
+         { /* start login */}
             <div id="login" className="col s12 top-buffer">
               <div className="row">
               <div className="col s12">
