@@ -19,6 +19,9 @@ body {
 .slate{
 	background-color: rgba(234, 227, 234, 0.6);
 }
+.Rt{
+	right: 0;
+}
 .tab-content>.active {
     background-color: rgba(234, 227, 234, 0.6);
 	color: #fff;
