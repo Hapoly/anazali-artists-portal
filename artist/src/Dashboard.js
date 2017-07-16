@@ -1,51 +1,80 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Navbar from './Navbar.js';
+
+import UsersModel from './server/users.js';
 
 class Dashboard extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      signupRequests : []
+    };
+  }
+
+  componentDidMount() {
+    this.generateSignupRequests();
+  }
+  generateSignupRequests = () => {
+    var requests = UsersModel.getNewSignUpRequests();
+    var list = [];
+    for(var i =0; i<requests.length; i++){
+      var req = requests[i];
+      console.log("test");
+      list.push(<tr>
+                <td style={{textAlign : "right"}}>{req.firstName}</td>
+                <td style={{textAlign : "right"}}>{req.lastName}</td>
+                <td>
+                <a href="!#"><i className="small material-icons">info_outline</i></a>
+                </td>
+                <td>
+                <button className="btn btn-success btn-sm">تایید</button> <button className="btn btn-danger btn-sm">رد</button>
+                </td>
+                </tr>
+        );
+    }
+    this.setState({
+      signupRequests : list
+    });
+  }
   render() {
     return (
       <div>
-      <div className="navbar-fixed">
-        <nav className="nav-color">
-          <div className="nav-wrapper nav-color">
-            <ul className="right hide-on-med-and-down">
-              <li><a href="sass.html">پیام ها</a></li>
-              <li><a href="badges.html">هنرمندان</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>  
+      <Navbar/>
 
 
        <div className="top-buffer row">
         <div className="row">
-          <div className="col s12 m6 ">
+        <div className="row">
+          <div className="col s12 m6 "> {/* col for 2 card in half of page*/}
+
             <div className="card-panel white ">
-             <div className="row">
+             <div className="row"> {/* row for events card*/}
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
-                    <li className="tab col s3"><a className="active" href="#nowevents" className="black-text">رویداد های جاری</a></li>
+                    <li className="tab col s3"><a className="active" href="#inprogress" className="black-text">رویداد های جاری</a></li>
                     <li className="tab col s3"><a href="#futureevents" className="black-text">رویداد های آینده</a></li>
                     <li className="tab col s3"><a href="#request" className="black-text"> درخواست ها</a></li>
                   </ul>
                 </div>
-
-             <div id="nowevents" className="col s12 top-buffer">
+        {/*start in progress events */}
+             <div id="inprogress" className="col s12 top-buffer">
               <div className="row">
                 <div className="col s12">
                    <table className="bordered">
                     <thead>
                       <tr>
-                          <th>عنوان رویداد</th>
-                          <th>دسته بندی</th>
+                          <th style={{textAlign : "right"}}>عنوان رویداد</th>
+                          <th style={{textAlign : "right"}}>دسته بندی</th>
                           <th>تاریخ</th>
                           <th>جزییات</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>گردهمایی</td>
-                        <td>جلسه هنرمندان</td>
+                        <td style={{textAlign : "right"}}>گردهمایی</td>
+                        <td style={{textAlign : "right"}}>جلسه هنرمندان</td>
                         <td><a href="#"><i className="small material-icons">today</i></a></td>
                         <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
                       </tr>
@@ -55,7 +84,9 @@ class Dashboard extends Component {
               </div>
             </div>
 
+          {/* finish in progress events*/}
 
+        {/* start future events*/}
              <div id="futureevents" className="col s12 top-buffer">
               <div className="row">
                 <div className="col s12">
@@ -80,8 +111,9 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
+              {/* finish future events*/}
 
-
+                {/* start requests for events*/}
              <div id="request" className="col s12 top-buffer">
               <div className="row">
                 <div className="col s12">
@@ -97,11 +129,14 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
+          {/* finish requests for events*/}
 
               </div>
             </div>
-
-             <div className="card-panel white ">
+          </div>
+        {/*start register requests*/}
+           <div className="col s12 m6 ">
+            <div className="card-panel white ">
              <div className="row">
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
@@ -120,39 +155,32 @@ class Dashboard extends Component {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                           <td>علی اکبری</td>
-                          <td>خواننده</td>
-                         <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
-                          <td>
-                          <button class="btn btn-success btn-sm">تایید</button> <button class="btn btn-danger btn-sm">رد</button>
-                          </td>
-                        </tr>
+                        {this.state.signupRequests}
                       </tbody>
                   </table>
                   </div>
                 </div>
             </div>
 
-                </div>
-                </div>
-
           </div>
+          </div>
+          </div>
+           {/*finish register requests*/}
+           </div>
 
-
-
-
+<div className="row">
+{/*start  messages card*/}
            <div className="col s12 m6 ">
             <div className="card-panel white">
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#login" className="black-text">ارسال پیام</a></li>
-                  <li className="tab col s3"><a href="#register" className="black-text">پیام های جدید</a></li>
+                  <li className="tab col s3"><a className="active" href="#send" className="black-text">ارسال پیام</a></li>
+                  <li className="tab col s3"><a href="#newmessage" className="black-text">پیام های جدید</a></li>
                 </ul>
               </div>
-
-            <div id="login" className="col s12">
+{/*start send in message card*/}
+            <div id="send" className="col s12">
               <div className="row">
               <div className="col s12">
                 <div className="row"> 
@@ -181,8 +209,9 @@ class Dashboard extends Component {
                 </div>
                </div>
             </div>
-
-             <div id="register" className="col s12 top-buffer">
+          {/* finish send in message card*/}
+        {/* start new messages in message card*/}
+             <div id="newmessage" className="col s12 top-buffer">
               <div className="row">
               <div className="col s12">
                 
@@ -221,10 +250,14 @@ class Dashboard extends Component {
                 </div>
                </div>
             </div>
+          {/*finish new message in message card*/}
 
             </div>
 
           </div>
+          </div>
+          <div className="col s12 m6 ">
+        {/*card:last artists*/}
             <div className="card-panel white ">
              <div className="row">
                 <div className="col s12">
@@ -258,6 +291,8 @@ class Dashboard extends Component {
 
                 </div>
                 </div>
+              {/* finish last artists*/}
+              </div>
           </div>
         </div>
       </div>

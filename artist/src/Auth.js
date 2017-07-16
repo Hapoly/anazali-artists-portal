@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 
 class Auth extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			logged : false,
+		};
+	}
+
   render() {
     return (
       <div className="top-buffer row">
@@ -43,7 +50,7 @@ class Auth extends Component {
                 </div>
                </div>
             </div>
-
+			{/*finish login */}
 
 
             <div id="register" className="col s12 top-buffer">
