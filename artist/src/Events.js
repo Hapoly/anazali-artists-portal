@@ -55,16 +55,16 @@ class Events extends Component {
                 <table className="bordered">
                     <thead>
                       <tr>
-                          <th>عنوان رویداد</th>
-                          <th>دسته بندی</th>
+                          <th style={{textAlign : "right"}}>عنوان رویداد</th>
+                          <th style={{textAlign : "right"}}>دسته بندی</th>
                           <th>تاریخ</th>
-                          <th>جزییات</th>
+                          <th >جزییات</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>گردهمایی</td>
-                        <td>جلسه هنرمندان</td>
+                        <td style={{textAlign : "right"}}>گردهمایی</td>
+                        <td style={{textAlign : "right"}}>جلسه هنرمندان</td>
                         <td><a href="#"><i className="small material-icons">today</i></a></td>
                         <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
                       </tr>
@@ -82,8 +82,8 @@ class Events extends Component {
                 <table className="bordered">
                     <tbody>
                       <tr>
-                          <td>درخواست شرکت در رویداد استارتاپ ویکند</td>
-                          <td>از طرف رضا</td>
+                          <td style={{textAlign : "right"}}>درخواست شرکت در رویداد استارتاپ ویکند</td>
+                          <td style={{textAlign : "right"}}>از طرف رضا</td>
                           <td ><a href="#"><i className="small material-icons">today</i></a></td>
                       </tr>
                     </tbody>

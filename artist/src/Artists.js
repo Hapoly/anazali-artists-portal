@@ -33,7 +33,7 @@ class Artists extends Component {
                        <tr>
 			              <td style={{textAlign : "right"}}>علی اکبری</td>
 			              <td style={{textAlign : "right"}}>خواننده</td>
-			              <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
+			              <td><a href="Artistdetail"><i className="small material-icons">info_outline</i></a></td>
 			             
 			            </tr>
                       </tbody>
@@ -58,7 +58,7 @@ class Artists extends Component {
                        <tr>
 			              <td  style={{textAlign : "right"}}>علی اکبری</td>
 			              <td style={{textAlign : "right"}}>خواننده</td>
-			              <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
+			              <td><a href="Artistdetail"><i className="small material-icons">info_outline</i></a></td>
 			              <td>
 			              <button className="btn btn-success btn-sm">تایید</button> <button className="btn btn-danger btn-sm">رد</button>
 			              </td>
