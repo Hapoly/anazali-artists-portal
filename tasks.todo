@@ -1,0 +1,51 @@
+☐ versions
+    =====================================================================================
+    ☐ 1.0.0 (alpha)
+        ☐ apis
+            ☐ auth
+                ☐ user auth check
+                ☐ user register request
+                ☐ user get information
+                ☐ logout the user (terminate session)
+            ☐ users data
+                ☐ users list
+                ☐ create user
+                ☐ remove user
+                ☐ edit users
+            ☐ signup request
+                ☐ signup requests list
+                ☐ refuse/accept a signup request
+        --------------------------------------------------------------------------------
+        ☐ front-end react
+            ☐ reports page (sadaf)
+                ☐ reports list
+                ☐ create new report forms
+                ☐ edit report forms
+                ☐ execute report forms
+            ☐ offline all resources and repo (reza)
+            ☐ logout button in nav bar (sadaf)
+            ☐ put error div in login and register page (sadaf)
+            ☐ rtl direction designs for all pages (sadaf)
+            ☐ persian numeric for texts and inputs in pages (reza)
+        --------------------------------------------------------------------------------
+        ☐ database design (reza)
+            ☐ init a mongodb and config all security
+            ☐ design all collections and write down documents
+                ☐ users
+                ☐ events
+                ☐ reports
+        --------------------------------------------------------------------------------
+        ☐ front end drivers (sadaf)
+            ☐ auth
+                ☐ user auth check
+                ☐ user register request
+                ☐ user get information
+                ☐ logout the user (terminate session)
+            ☐ users data
+                ☐ users list
+                ☐ create user
+                ☐ remove user
+                ☐ edit users
+            ☐ signup request
+                ☐ signup requests list
+                ☐ refuse/accept a signup request
