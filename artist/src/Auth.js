@@ -25,8 +25,8 @@ class Auth extends Component {
             <div className="row">
             <div className="col s12">
               <ul className="tabs tabs-fixed-width">
-                <li className="tab col s3"><a className="active" href="#login" className="black-text">ورود</a></li>
-                <li className="tab col s3"><a href="#register" className="black-text">ثبت نام</a></li>
+                <li className="tab col s3"><a className="active" href="#login" className="black-text title-text">ورود</a></li>
+                <li className="tab col s3"><a href="#register" className="black-text title-text">ثبت نام</a></li>
               </ul>
             </div>
          { /* start login */}
@@ -44,7 +44,7 @@ class Auth extends Component {
                   </div> 
                  </div>
                    <div className="row">
-                <a className="teal lighten-1 btn">ورود</a>
+                <a className="teal lighten-1 btn title-text">ورود</a>
                 </div>
                 </div>
                </div>

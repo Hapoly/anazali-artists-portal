@@ -5,7 +5,7 @@ class Navbar extends Component {
   adminItems = () => {
     return (
       <div>
-      <ul className="right hide-on-med-and-down">
+      <ul className="right hide-on-med-and-down title-text">
         <li><a href="reports">گزارشات</a></li>
         <li><a href="artists">هنرمندان</a></li>
         <li><a href="events">رویداد ها</a></li>
@@ -18,7 +18,7 @@ class Navbar extends Component {
           </a>
         </li>
       </ul>
-      <ul id="dropdown1" className="dropdown-content">
+      <ul id="dropdown1" className="dropdown-content title-text">
         <li><a href="reports">گزارشات</a></li>
         <li><a href="artists">هنرمندان</a></li>
         <li><a href="events">رویداد ها</a></li>
