@@ -7,7 +7,7 @@ class Auth extends Component {
 			logged : false,
 		};
 	}
-
+/* this is the main script render for Auth componenet */
   render() {
     return (
       <div className="top-buffer row">

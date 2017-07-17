@@ -11,6 +11,9 @@ class Navbar extends Component {
         <li><a href="events">رویداد ها</a></li>
         <li><a href="messages">پیام ها</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-left">
+      <li><a href="#"><button className="glyphicon glyphicon-log-in btn " style={{backgroundColor :" #006064"}}>خروج</button> </a></li>
+    </ul>
       <ul className="right hide-on-large-only" style={{paddingRight: "0px"}}>
         <li>
           <a className="dropdown-button" href="#!" data-activates="dropdown1">
