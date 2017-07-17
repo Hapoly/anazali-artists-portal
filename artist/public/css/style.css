@@ -23,7 +23,7 @@ body{
 	font-family: 'Material Icons';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Material Icons'), local('MaterialIcons-Regular'), url('./css/google-fonts.woff2') format('woff2');
+	src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2)
 }
 
 .material-icons {
@@ -46,7 +46,7 @@ body{
      font-family: '0 Roya';
      src: local('☺'),
      local('0 Roya'),
-     url('./css/b-roya.woff') format('woff');
+     url('http://awebfont.ir/services/fonts/611bba0f218e4740e1ce2e37ebc80ef3c29513101011931.woff') format('woff');
 font-weight: normal;
 font-style: normal;
 }
