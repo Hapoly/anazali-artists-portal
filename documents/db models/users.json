@@ -1,0 +1,71 @@
+/*
+    user data model:
+        this data model json based is used to have all kind of users (Admin and Regular)
+        admin users don't need "info" field. auth progress is based on just all fields expect "info"
+        "token" field is for holding the token string and its properties
+*/
+{
+    "_id": "#",
+    "first_name": "#",
+    "last_name": "#",
+    "password": "#",
+    "email": "#",
+    "type": "ADMIN/REGU",
+    "info": {
+        "father_name": "#",
+        "nickname": "#",
+        "art_fields": [{
+            "code": "#",
+            "title": "#"
+        }],
+        "religion": {
+            /* religions.json */
+            "code": "#",
+            "title": "#"
+        },
+        "haebitate_status": {
+            "lenght": "years",
+            "place": {
+                /* cities.json */
+                "code": "#",
+                "title": "#"
+            },
+            "phone": "#",
+            "cellphone": "#",
+            "address": "#"
+        },
+        "educations": [{
+            /* educations.json */
+            "degree": {
+                "code": "#",
+                "title": "#"
+            },
+            "field": {
+                "code": "#",
+                "titile": "#"
+            }
+        }],
+        "birth": {
+            "date": {
+                "year": "#",
+                "month": "#",
+                "day": "#"
+            },
+            "place": "#"
+        },
+        "pictures": {
+            "id_card": "image_id",
+            "profile": "image_id"
+        }
+    },
+    "token": {
+        "created": "stamp",
+        "expire": "stamp",
+        "value": "#"
+    },
+    "status": {
+        /* user-status.json */
+        "code": "#",
+        "title": "#"
+    }
+}

@@ -1,0 +1,44 @@
+/*
+    events data model:
+        this document model includes all first-step needed informations about an event
+*/
+{
+    "_id": "#",
+    "title": "#",
+    "date": {
+        "start": {
+            "year": "#",
+            "month": "#",
+            "daya": "#",
+            "hour": "#",
+            "min": "#"
+        },
+        "end": {
+            "year": "#",
+            "month": "#",
+            "daya": "#",
+            "hour": "#",
+            "min": "#"
+        }
+    },
+    "description": "#",
+    "images": [
+        "image_id"
+    ],
+    "holder": {
+        "_id": "#",
+        "first_name": "#",
+        "last_name": "#"
+    },
+    "status": {
+        "code": "#",
+        "title": "#"
+    },
+    "request_date": {
+        "year": "#",
+        "month": "#",
+        "day": "#",
+        "hour": "#",
+        "min": "#"
+    }
+}
