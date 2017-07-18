@@ -3,6 +3,7 @@ const config = require('./config.js')
 const bodyParser = require('body-parser');
 const app = express()
 
+app.use(bodyParser.json());
 
 /* including the controllers */
 const auth = require('./api/auth.js');
@@ -17,8 +18,10 @@ MongoClient.connect(url, function(err, db) {
   console.log("Connected correctly to server.");
 
   /* Auth */
-  app.get('/register', function(req, res){
-    auth.register(req, res, db);
+  app.post('/register', function(req, res){
+    console.log(req.body);      // your JSON
+    res.send(req.body);
+    //auth.register(req, res, db);
   });
   app.get('/login', function(res, req, db){
     auth.login(req, res, db);
