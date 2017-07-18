@@ -43,7 +43,7 @@
         --------------------------------------------------------------------------------
         ☐ front end drivers (sadaf)
             ☐ auth
-                ☐ develope OAuth (reza)
+                ✘ develope OAuth (reza) @cancelled (7/18/2017, 12:38:16 PM)
                 ☐ user auth check
                 ☐ user register request
                 ☐ user get information
