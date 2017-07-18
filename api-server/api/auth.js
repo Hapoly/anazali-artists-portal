@@ -3,11 +3,12 @@
 */
 
 
-function register (req, res){
+function register (req, res, db){
+    console.log(req.body);
     res.send('register');
 }
 
-function login(req, res){
+function login(req, res, db){
     res.send('login');
 }
 /* exports */
