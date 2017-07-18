@@ -2,7 +2,7 @@
   "name": "artists-api-server",
   "version": "1.0.0",
   "description": "anzali free api servers",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "express": "^4.15.3",
+    "mongodb": "^2.2.30",
     "mongoose": "^4.11.3"
   }
 }
