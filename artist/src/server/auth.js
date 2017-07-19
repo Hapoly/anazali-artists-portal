@@ -18,16 +18,16 @@ var userRegister = (data, callBack) => {
     xhr.withCredentials = false;
 
     xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            if(this.body.result = 'sucess')
-                callBack(true, this.body.info);
-            else
-                callBack(false, this.body.errors);
-            console.log(this.responseText);
+    if (this.readyState === 4) {
+        if(data.result == 'failed'){
+            callBack(false, data.errors);
+        }else{
+            callBack(true, data.info);
         }
+    }
     });
 
-    xhr.open("POST", "http://localhost:5000/register");
+    xhr.open("POST", "http://94.23.171.142:5000/register");
     xhr.setRequestHeader("content-type", "application/json");
 
     xhr.send(data);
