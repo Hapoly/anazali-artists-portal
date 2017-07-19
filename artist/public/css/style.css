@@ -17,22 +17,9 @@ body{
 .title-size {
 	font-size: 20px;
 }
-/*.btn{
-	background-color: #006064;
+.pagination li.active{
+    background-color: #00796b;
 }
-.btn:visited{
-	background-color: #006064;
-}
-.btn:active{
-	background-color: #006064;
-}
-.btn:focus{
-	background-color: #006064;
-}
-.btn:hover{
-background-color: #006064;
-}
-*/
 
 /* fallback */
 @font-face {
