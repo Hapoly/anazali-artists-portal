@@ -1,2 +1,3 @@
 api-server/config.js
 api-server/config.py
+api-server/__pycache__/*
