@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authService from './server/auth.js';
 
 class Auth extends Component {
 	constructor(props) {
@@ -6,7 +7,15 @@ class Auth extends Component {
 		this.state = {
 			logged : false,
 		};
-	}
+  }
+  
+  login = (event)=>{
+    var userName= document.getElementById("login_userName").value;
+    var password = document.getElementById("login_password").value;
+    authService.userCheck(userName, password, function(result){
+      alert(result? 'success' : 'failed');
+    });    
+  }
 /* this is the main script render for Auth componenet */
   render() {
     return (
@@ -35,16 +44,17 @@ class Auth extends Component {
               <div className="col s12">
                 <div className="row"> 
                   <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">رمز عبور</label>
+                    <input id="login_password" type="text" className="validate"/>
+                    <label for="login_password">رمز عبور</label>
                   </div>
                   <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">نام کاربری</label>
+                    <input  id="login_userName" type="text" className="validate"/>
+                    <label for="login_userName">نام کاربری</label>
                   </div> 
                  </div>
                    <div className="row">
-                <a className="teal lighten-1 btn title-text">ورود</a>
+                  <button onClick={this.login} className="btn waves-effect waves-light" type="button" >ورود
+                  </button>
                 </div>
                 </div>
                </div>

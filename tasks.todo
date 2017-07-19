@@ -31,12 +31,19 @@
         ☐ database design (reza)
             ☐ init a mongodb and config all security
             ☐ design all collections and write down documents
-                ☐ users
-                ☐ events
+                ✔ users @done (7/18/2017, 1:58:03 AM)
+                ✔ events @done (7/18/2017, 1:58:02 AM)
                 ☐ reports
+                ✔ messages @done (7/18/2017, 1:57:59 AM)
+                ☐ educations
+                    ☐ fill the data
+                    ✔ define the structure @done (7/18/2017, 1:57:55 AM)
+                ☐ cities
+                ☐ art fields
         --------------------------------------------------------------------------------
         ☐ front end drivers (sadaf)
             ☐ auth
+                ✘ develope OAuth (reza) @cancelled (7/18/2017, 12:38:16 PM)
                 ☐ user auth check
                 ☐ user register request
                 ☐ user get information

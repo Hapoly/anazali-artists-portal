@@ -1,0 +1,37 @@
+/*
+    messages data model:
+        this json data model contains all data about a single message
+*/
+{
+    "_id": "#",
+    "title": "#",
+    "body": "#",
+    "images": [
+        "image_id"
+    ],
+    "reciever": {
+        "_id": "#",
+        "first_name": "#",
+        "last_name": "#"
+    },
+    "sender": {
+        "_id": "#",
+        "first_name": "#",
+        "last_name": "#"
+    },
+    "status": {
+        "code": "#",
+        "title": "#"
+    },
+    "date": {
+        "year": "#",
+        "month": "#",
+        "day": "#",
+        "hour": "#",
+        "min": "#"
+    },
+    "answer": {
+        "_id": "#",
+        "title": "#"
+    }
+}
