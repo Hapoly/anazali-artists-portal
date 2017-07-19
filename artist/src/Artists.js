@@ -13,12 +13,12 @@ class Artists extends Component {
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#send" className="black-text">هنرمندان</a></li>
+                  <li className="tab col s3"><a className="active" href="#artistslist" className="black-text">هنرمندان</a></li>
                   <li className="tab col s3"><a href="#registerreq" className="black-text">درخواست های ثبت نام</a></li>
                 </ul>
               </div>
 
-              <div id="send" className="col s12 top-buffer">
+              <div id="artistslist" className="col s12 top-buffer">
                 <div className="row">
                   <div className="col s12">
                      <table className="bordered">
@@ -38,6 +38,15 @@ class Artists extends Component {
 			            </tr>
                       </tbody>
                   </table>
+                  <ul className="pagination">
+                  <li className="disabled"><a href="#!"><i className="material-icons"> chevron_right</i></a></li>
+                  <li className="active"><a href="#!">1</a></li>
+                  <li className="waves-effect"><a href="#!">2</a></li>
+                  <li className="waves-effect"><a href="#!">3</a></li>
+                  <li className="waves-effect"><a href="#!">4</a></li>
+                  <li className="waves-effect"><a href="#!">5</a></li>
+                  <li className="waves-effect"><a href="#!"><i className="material-icons">chevron_left</i></a></li>
+                </ul>
                   </div>
                 </div>
             </div>
@@ -65,6 +74,15 @@ class Artists extends Component {
 			            </tr>
                       </tbody>
                   </table>
+                  <ul className="pagination">
+                  <li className="disabled"><a href="#!"><i className="material-icons"> chevron_right</i></a></li>
+                  <li className="active"><a href="#!">1</a></li>
+                  <li className="waves-effect"><a href="#!">2</a></li>
+                  <li className="waves-effect"><a href="#!">3</a></li>
+                  <li className="waves-effect"><a href="#!">4</a></li>
+                  <li className="waves-effect"><a href="#!">5</a></li>
+                  <li className="waves-effect"><a href="#!"><i className="material-icons">chevron_left</i></a></li>
+                </ul>
                   </div>
                 </div>
             </div>
