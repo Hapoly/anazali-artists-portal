@@ -5,7 +5,8 @@ class Auth extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			logged : false,
+      logged : false,
+      errors : '',
 		};
   }
   
@@ -15,6 +16,39 @@ class Auth extends Component {
     authService.userCheck(userName, password, function(result){
       alert(result? 'success' : 'failed');
     });    
+  }
+  register =(event)=>{
+    var firstname = document.getElementById("reg_firstname").value;
+    var lastname = document.getElementById("reg_lastname").value;
+    var email = document.getElementById("reg_email").value;
+    var password = document.getElementById("reg_password").value;
+    var rep_password = document.getElementById("reg_rep_password").value;
+    var nickname = document.getElementById("reg_artname").value;
+    var fathername = document.getElementById("reg_fathername").value;
+    if(password != rep_password){
+      this.setState({
+        errors : 
+        <div className="row">
+          <div className="col s12 m6 offset-m3 top-buffer">
+          <div className="card-panel  red darken-1 white-text title-size">
+            رمز عبور ها یکسان نمی باشد.
+          </div>
+          </div>
+        </div>
+      });
+    }else{
+      var info = {
+        first_name:firstname,
+        last_name:lastname,
+        password:password,
+        email:email,
+        father_name:fathername,
+        nickname:nickname
+      };
+      this.setState({
+        errors : ''
+      });
+    }
   }
 /* this is the main script render for Auth componenet */
   render() {
@@ -28,6 +62,7 @@ class Auth extends Component {
             />
             </div>
         </div>
+        {this.state.errors}
         <div className="row">
           <div className="col s12 m6 offset-m3">
           <div className="card-panel white">
@@ -62,157 +97,53 @@ class Auth extends Component {
 			{/*finish login */}
 
 
-            <div id="register" className="col s12 top-buffer">
+            <div id="register" className="col s12 ">
               <div className="row">
               <div className="col s12">
 
                 <div className="row"> 
                   <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">نام خانوادگی</label>
+                    <input id="reg_lastname" type="text" className="validate"/>
+                    <label for="reg_lastname">نام خانوادگی</label>
                   </div>
                   <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">نام</label>
+                    <input  id="reg_firstname" type="text" className="validate"/>
+                    <label for="reg_firstname">نام</label>
                   </div> 
                 </div>
 
                  <div className="row"> 
                   <div className="input-field col s12">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">ایمیل (نام کاربری) *</label>
+                    <input  id="reg_email" type="text" className="validate"/>
+                    <label for="reg_email">ایمیل (نام کاربری) *</label>
                   </div> 
                 </div>
 
                  <div className="row"> 
                   <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">تکرار رمز عبور *</label>
+                    <input id="reg_rep_password" type="password" className="validate"/>
+                    <label for="reg_rep_password">تکرار رمز عبور *</label>
                   </div>
                   <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">رمز عبور *</label>
+                    <input  id="reg_password" type="password" className="validate"/>
+                    <label for="reg_password">رمز عبور *</label>
                   </div> 
                 </div>
 
                 <div className="row"> 
                   <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">نام هنری *</label>
+                    <input id="reg_artname" type="text" className="validate"/>
+                    <label for="reg_artname">نام هنری *</label>
                   </div>
                   <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">نام پدر*</label>
+                    <input  id="reg_fathername" type="text" className="validate"/>
+                    <label for="reg_fathername">نام پدر*</label>
                   </div> 
-                </div>
-
-                <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">جنسیت *</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">دین و مذهب</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">سال شروع اقامت در منطقه آزاد انزلی</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">وضعیت اقامت در منطقه آزاد انزلی</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">وضعیت تاهل</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">مدرک تحصیلی *</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">کد ملی *</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">شماره شناسنامه *</label>
-                  </div>
-                </div>
-
-                 <div className="row"> 
-                   <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">محل تولد *</label>
-                  </div> 
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">تاریخ تولد *</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">رشته ی اصلی هنری *</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">سایر رشته های هنری</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s6">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">شماره تلفن ثابت</label>
-                  </div>
-                  <div className="input-field col s6">
-                    <input  id="first_name" type="text" className="validate"/>
-                    <label for="first_name">شماره همراه *</label>
-                  </div> 
-                </div>
-
-                 <div className="row"> 
-                  <div className="input-field col s12">
-                    <input id="last_name" type="text" className="validate"/>
-                    <label for="last_name">محل سکونت (آدرس)*</label>
-                  </div>
                 </div>
 
                 <div className="row">
-                  <div className="file-field input-field col s6">
-                    <div className="btn">
-                      <span>فایل</span>
-                      <input type="file" multiple/>
-                    </div>
-                    <div className="file-path-wrapper">
-                      <input className="file-path validate" type="text" placeholder="عکس را بار گذاری کنید"/>
-                    </div>
-                  </div>
-                  <div className="file-field input-field col s6">
-                    <div className="btn">
-                      <span>فایل</span>
-                      <input type="file" multiple/>
-                    </div>
-                    <div className="file-path-wrapper">
-                      <input className="file-path validate" type="text" placeholder="عکس کارت ملی *"/>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row">
-                <a className="teal lighten-1 btn">ثبت نام</a>
+                   <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
+                  </button>
                 </div>
 
                 
