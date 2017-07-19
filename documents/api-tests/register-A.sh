@@ -1,8 +1,8 @@
 curl -X POST \
-  http://localhost:5042/register \
+  http://localhost:5000/test-output \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -H 'postman-token: 5bc5a702-e039-c0e8-7cb2-369f19bd744b' \
+  -H 'postman-token: f1238c37-a56b-4319-81d3-18a6ce97a86c' \
   -d '{
     "first_name": "علیرضا",
     "last_name": "دربندی",
