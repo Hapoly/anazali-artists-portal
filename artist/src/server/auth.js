@@ -11,7 +11,7 @@ var userCheck = (userName, password, callBack) => {
         callBack(false);
 }
 
-var userRegister = (data, callBack) => {
+var userRegister = (data, on_error_callback, on_success_callback) => {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
@@ -20,9 +20,9 @@ var userRegister = (data, callBack) => {
     xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
         if(data.result == 'failed'){
-            callBack(false, data.errors);
+            on_error_callback(data.errors);
         }else{
-            callBack(true, data.info);
+            on_success_callback(data.info);
         }
     }
     });
