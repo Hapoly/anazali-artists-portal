@@ -28,7 +28,7 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
         }
     });
 
-    xhr.open("POST", "http://localhost:5000/register");
+    xhr.open("POST", "http://94.23.171.142:5000/register");
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(data);
 }
