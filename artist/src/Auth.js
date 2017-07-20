@@ -45,6 +45,32 @@ class Auth extends Component {
         father_name:fathername,
         nickname:nickname
       };
+      authService.userRegister(info, 
+      (errors) => {
+        this.setState({
+        errors : 
+        <div className="row">
+          <div className="col s12 m6 offset-m3 top-buffer">
+          <div className="card-panel  red darken-1 white-text title-size">
+            errors
+          </div>
+          </div>
+        </div>
+      });
+      },
+      (info) => {
+        this.setState({
+        errors : 
+        <div className="row">
+          <div className="col s12 m6 offset-m3 top-buffer">
+          <div className="card-panel  red darken-1 white-text title-size">
+            ثبت نام با موفقیت انجام شد
+          </div>
+          </div>
+        </div>
+      });
+      }
+      );
       this.setState({
         errors : ''
       });

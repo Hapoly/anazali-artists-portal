@@ -37,5 +37,6 @@ var userGetInformation = (userName) => {
 }
 module.exports = {
     userCheck,
-    userGetInformation
+    userGetInformation,
+    userRegister
 }
