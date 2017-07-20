@@ -7,16 +7,25 @@ def register(data, db):
     user_informations = {}
     if 'first_name' not in data:
         errors.append(101)
-    
+    if data['first_name'] == '':
+        errors.append(101)
+
     if 'last_name' not in data:
+        errors.append(102)
+    if data['last_name'] == '':
         errors.append(102)
 
     if 'password' not in data:
+        errors.append(103)
+    if data['password'] == '':
         errors.append(103)
 
     if 'email' not in data:
         errors.append(104)
     else:
+        if data['email'] == '':
+            errors.append(104)
+
         # check if email exits
         users = db['users'].find({'email': data['email']})
         for user in users:
@@ -28,10 +37,14 @@ def register(data, db):
         
     if 'father_name' not in data:
         errors.append(107)
+    if data['father_name'] == '':
+        errors.append(107)
 
     if 'nickname' not in data:
         errors.append(108)
-    
+    if data['nickname'] == '':
+        errors.append(108)
+
 
     
     if len(errors) > 0:

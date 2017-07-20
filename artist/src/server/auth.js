@@ -19,17 +19,17 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            if(data.result == 'failed'){
-                on_error_callback(data.errors);
+            var res = JSON.parse(this.responseText);
+            if(res.results == 'failed'){
+                on_error_callback(res.errors);
             }else{
-                on_success_callback(data.info);
+                on_success_callback(res.info);
             }
         }
     });
 
     xhr.open("POST", "http://localhost:5000/register");
     xhr.setRequestHeader("content-type", "application/json");
-    console.log('tst');
     xhr.send(data);
 }
 var userGetInformation = (userName) => {
