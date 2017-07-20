@@ -27,8 +27,9 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
             }
         }
     });
-
+    /* to remove server */
     xhr.open("POST", "http://94.23.171.142:5000/register");
+
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(data);
 }
