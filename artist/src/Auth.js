@@ -72,8 +72,10 @@ class Auth extends Component {
           errors : 
             <div className="row">
               <div className="col s12 m6 offset-m3 top-buffer">
-              <div className="card-panel  red darken-1 white-text title-size">
-                ثبت نام با موفقیت انجام شد
+              <div className="card-panel green darken-3 white-text">
+                <p>ثبت نام با موفیقت انجام شد</p>
+                <p>هنرمند محترم. درخواست شما برای ثبت نام در سامانه هنرمندان منطقه آزاد انزلی با موفقیت ارسال شد. کارشناسان مربوطه در اسرع وقت با بررسی اطلاعات ارسال شده توسط شما، با درخواست شما موافقت کرده و شما را از طریق ایمیل آگاه خواهند ساخت</p>
+                <p>با تشکر</p>
               </div>
               </div>
             </div>
