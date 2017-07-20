@@ -18,18 +18,18 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
     xhr.withCredentials = false;
 
     xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-        if(data.result == 'failed'){
-            on_error_callback(data.errors);
-        }else{
-            on_success_callback(data.info);
+        if (this.readyState === 4) {
+            if(data.result == 'failed'){
+                on_error_callback(data.errors);
+            }else{
+                on_success_callback(data.info);
+            }
         }
-    }
     });
 
-    xhr.open("POST", "http://94.23.171.142:5000/register");
+    xhr.open("POST", "http://localhost:5000/register");
     xhr.setRequestHeader("content-type", "application/json");
-
+    console.log('tst');
     xhr.send(data);
 }
 var userGetInformation = (userName) => {

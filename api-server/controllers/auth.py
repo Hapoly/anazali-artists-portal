@@ -1,4 +1,5 @@
 from bson import ObjectId
+import hashlib
 
 def register(data, db):
     errors = []
@@ -42,7 +43,7 @@ def register(data, db):
         db['users'].insert({
             "first_name" : data['first_name'],
             "last_name" : data['last_name'],
-            "password" : data['password'],
+            "password" : hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest(),
             "email" : data['email'],
             "info" : {
                 "father_name" : data['father_name'],
