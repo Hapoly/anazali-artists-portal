@@ -21,8 +21,11 @@ def register():
 
 @app.route("/login", methods=['POST'])
 def login():
-    return "this is athe login method"
+    return json.dumps(auth.login(request.json, db))
 
+@app.route("/reset", methods=['POST'])
+def reset():
+    return json.dumps(auth.reset(request.json, db))
 
 @app.route('/test-output', methods=['GET', 'POST'])
 def test_output():

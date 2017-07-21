@@ -70,3 +70,26 @@ def register(data, db):
                 'result' : 'sucess',
                 'info' : user_informations
             }
+
+def login(data, db):
+    hashed_password = hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest()
+    
+    user = db['users'].find_one({
+        'email' : data['email'],
+        'password' : hashed_password
+    })
+    print(user)
+    if user != None:
+        return {
+            'result' : 'success'
+        }
+    else:
+        return {
+            'result' : 'failed'
+        }
+def reset(data, db):
+    for table in data['tables']:
+        db[table].remove({})
+    return {
+        'result' : 'done'
+        }
