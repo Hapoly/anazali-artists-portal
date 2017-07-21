@@ -3,10 +3,10 @@
     ☐ 1.0.0 (alpha)
         ☐ apis (reza)
             ☐ auth
-                ☐ user auth check
-                ☐ user register request
+                ✔ user auth check @done (7/21/2017, 3:59:30 PM)
+                ✔ user register request @done (7/21/2017, 3:59:32 PM)
                 ☐ user get information
-                ☐ logout the user (terminate session)
+                ✔ logout the user (terminate session) @done (7/21/2017, 3:59:36 PM)
             ☐ users data
                 ☐ users list
                 ☐ create user
@@ -46,7 +46,7 @@
             ☐ auth
                 ✘ develope OAuth (reza) @cancelled (7/18/2017, 12:38:16 PM)
                 ☐ user auth check
-                ☐ user register request
+                ✔ user register request @done (7/21/2017, 3:59:44 PM)
                 ☐ user get information
                 ☐ logout the user (terminate session)
             ☐ users data
