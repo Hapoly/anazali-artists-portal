@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import authService from './server/auth.js';
-import { instanceOf } from 'prop-types';
-import { CookiesProvider, withCookies, Cookies } from 'react-cookie';
 import Error from './utility/Error.js'
 
 class Auth extends Component {
@@ -20,10 +18,8 @@ class Auth extends Component {
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, (result) => {
-      if (result =='success'){
-          const { cookies } = this.props;
-          cookies.set('email', userName, { path: '/' });
-          cookies.set('password', password, { path: '/' });
+      if (result.result =='success'){
+        
           window.location = "http://localhost:3000/dashboard";
       }else{
         console.log(result);
