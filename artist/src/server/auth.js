@@ -6,17 +6,17 @@ var userCheck = (userName, password, callBack) => {
     });
 
     var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+    xhr.withCredentials = false;
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             console.log(this.responseText);
             var res = JSON.parse(this.responseText);
-            callBack(res.result);
+            callBack(res);
         }
     });
 
-    xhr.open("POST", "http://localhost:5000/login");
+    xhr.open("POST", "http://192.168.43.238:5000/login");
     xhr.setRequestHeader("content-type", "application/json");
 
     xhr.send(data);
@@ -39,7 +39,7 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
         }
     });
     /* to remove server */
-    xhr.open("POST", "http://localhost:5000/register");
+    xhr.open("POST", "http://192.168.43.238:5000/register");
 
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(data);
