@@ -13,12 +13,15 @@ class Auth extends Component {
   login = (event)=>{
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
-    authService.userCheck(userName, password, function(result){
-      alert(result? 'success' : 'failed');
-      if (result==='success'){
+    authService.userCheck(userName, password, (result) => {
+      if (result =='success'){
           window.location = "http://localhost:3000/dashboard";
       }else{
-           errors : <Error errorList={frontErrorList} />
+        console.log(result);
+         this.setState({
+          errors : <Error errorList={[112]} />
+        });
+           
       }
     });    
   }
@@ -152,7 +155,7 @@ class Auth extends Component {
 
                   <div className="row"> 
                     <div className="input-field col s12 m12">
-                      <input  id="reg_email" type="text" className="validate"/>
+                      <input  id="reg_email" type="email" className="validate"/>
                       <label for="reg_email">* آدرس ایمیل</label>
                     </div> 
                   </div>
