@@ -1,5 +1,6 @@
 from bson import ObjectId
 import hashlib
+import time
 
 def register(data, db):
     errors = []
@@ -78,15 +79,56 @@ def login(data, db):
         'email' : data['email'],
         'password' : hashed_password
     })
-    print(user)
+
+    token_string = hashlib.sha256(bytes('{0}:{1}'.format(data['email'], data['password'])
+        , encoding='utf-8')).hexdigest()
     if user != None:
+        db['users'].update({'email' : data['email']},
+            {'$set' : {
+                'token' : {
+                    'token_string' : token_string,
+                    'expire' : time.time() + (3600 * 24)
+                }
+            }})
+        user = db['users'].find_one({
+            'email' : data['email'],
+            'password' : hashed_password
+        })
+        
         return {
-            'result' : 'success'
+            'result' : 'success',
+            'user' : user
         }
     else:
         return {
             'result' : 'failed'
         }
+
+def check_auth(data, db):
+    token_string = data['token_string']
+    user = db['users'].find_one({'token.token_string' : token_string})
+    expire_time = float(user['token']['expire'])
+    current_time = time.time()
+
+    if current_time < expire_time:
+        db['users'].update({'token.token_string' : token_string},
+            {'$set' : {
+                'token' : {
+                    'token_string' : token_string,
+                    'expire' : current_time + (3600 * 24)
+                }
+            }})
+        user = db['users'].find_one({'token.token_string' : token_string})
+        
+        return {
+            'result' : 'success',
+            'user' : user
+        }
+    else:
+        return {
+            'result' : 'failed'
+        }
+
 def reset(data, db):
     for table in data['tables']:
         db[table].remove({})

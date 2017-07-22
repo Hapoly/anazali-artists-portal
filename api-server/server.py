@@ -17,20 +17,26 @@ def index():
 @app.route("/register", methods=['POST'])
 @cross_origin()
 def register():
-    return json.dumps(auth.register(request.json, db))
+    return JSONEncoder().encode(auth.register(request.json, db))
 
 @app.route("/login", methods=['POST'])
 def login():
-    return json.dumps(auth.login(request.json, db))
+    return JSONEncoder().encode(auth.login(request.json, db))
+
+@app.route("/check-auth", methods=['POST'])
+def check_auth():
+    return JSONEncoder().encode(auth.check_auth(request.json, db))
+
 
 @app.route("/reset", methods=['POST'])
 def reset():
-    return json.dumps(auth.reset(request.json, db))
+    return JSONEncoder().encode(auth.reset(request.json, db))
+
 
 @app.route('/test-output', methods=['GET', 'POST'])
 def test_output():
     content = request.json
-    return json.dumps(content)
+    return JSONEncoder().encode(content)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
