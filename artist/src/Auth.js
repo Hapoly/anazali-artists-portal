@@ -3,7 +3,8 @@ import authService from './server/auth.js';
 import Error from './utility/Error.js'
 
 /* cookies progress */
-import { setCookie, getCookie, removeCookie } from "react-simple-cookie-store"
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class Auth extends Component {
 	constructor(props) {
@@ -19,8 +20,9 @@ class Auth extends Component {
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, (result) => {
       if (result.result =='success'){
-          setCookie('user', JSON.stringify(result.user), 3);
-          console.log(result)
+          cookies.set('user', result.user, { path: '/' });
+          cookies.set('email', email, { path: '/' });
+          cookies.set('password', password, { path: '/' });
           window.location = "http://localhost:3000/dashboard";
       }else{
         console.log(result);

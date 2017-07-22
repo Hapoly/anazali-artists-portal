@@ -2,23 +2,24 @@ import React, { Component } from 'react';
 
 
 /* cookies progress */
-import { setCookie, getCookie, removeCookie } from "react-simple-cookie-store"
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class Navbar extends Component {
   getFullName = () => {
-    //var userInformations = JSON.parse(getCookie('user'));
-    console.log(getCookie('user'));
-    return 'test';
+    var first_name = cookies.get('user').first_name;
+    var last_name = cookies.get('user').last_name;
+    return first_name + ' ' + last_name;
   }
   adminItems = () => {
     return (
       <div>
       <ul className="right hide-on-med-and-down title-text">
-        <li><a href="profile">{this.getFullName()}</a></li>
         <li><a href="reports">گزارشات</a></li>
         <li><a href="artists">هنرمندان</a></li>
         <li><a href="events">رویداد ها</a></li>
         <li><a href="messages">پیام ها</a></li>
+        <li><a href="profile">{this.getFullName()}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
       <li><a href="#"><button className="glyphicon glyphicon-log-in btn " style={{backgroundColor :" #006064"}}>خروج</button> </a></li>
@@ -35,6 +36,7 @@ class Navbar extends Component {
         <li><a href="artists">هنرمندان</a></li>
         <li><a href="events">رویداد ها</a></li>
         <li><a href="messages">پیام ها</a></li>
+        <li><a href="profile">{this.getFullName()}</a></li>
       </ul>
       </div>
     );
