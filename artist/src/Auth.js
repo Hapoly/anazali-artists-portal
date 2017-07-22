@@ -21,7 +21,7 @@ class Auth extends Component {
     authService.userCheck(userName, password, (result) => {
       if (result.result =='success'){
           cookies.set('user', result.user, { path: '/' });
-          cookies.set('email', email, { path: '/' });
+          cookies.set('email', userName, { path: '/' });
           cookies.set('password', password, { path: '/' });
           window.location = "http://localhost:3000/dashboard";
       }else{
