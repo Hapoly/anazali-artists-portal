@@ -1,4 +1,4 @@
-from bson import ObjectId
+from bson.objectid import ObjectId
 import hashlib
 import time
 
@@ -59,6 +59,7 @@ def register(data, db):
             "last_name" : data['last_name'],
             "password" : hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest(),
             "email" : data['email'],
+            "type" : "ADMIN",
             "info" : {
                 "father_name" : data['father_name'],
                 "nickname" : data['nickname']

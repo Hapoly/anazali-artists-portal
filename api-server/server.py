@@ -27,6 +27,10 @@ def login():
 def check_auth():
     return JSONEncoder().encode(auth.check_auth(request.json, db))
 
+@app.route("/profile", methods=['POST'])
+def get_profule():
+    return JSONEncoder().encode(users.get_user_profile(request.json, db))
+
 
 @app.route("/reset", methods=['POST'])
 def reset():
