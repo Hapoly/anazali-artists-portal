@@ -1,14 +1,24 @@
 var userCheck = (userName, password, callBack) => {
     /* check username and password progress */
-    var users = {
-        "sadaf" : "sadaf123",
-        "reza" : "reza96",
-        "sorush" : "baxetkojas"
-    }
-    if(userName in users && users[userName] == password)
-        callBack(true);
-    else
-        callBack(false);
+    var data = JSON.stringify({
+    "password": password,
+    "email": userName
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            var res = JSON.parse(this.responseText);
+            callBack(res.result);
+        }
+    });
+
+    xhr.open("POST", "http://localhost:5000/login");
+    xhr.setRequestHeader("content-type", "application/json");
+
+    xhr.send(data);
 }
 
 var userRegister = (data, on_error_callback, on_success_callback) => {
@@ -28,7 +38,7 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
         }
     });
     /* to remove server */
-    xhr.open("POST", "http://94.23.171.142:5000/register");
+    xhr.open("POST", "http://localhost:5000/register");
 
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(data);
