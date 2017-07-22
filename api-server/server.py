@@ -20,24 +20,29 @@ def register():
     return JSONEncoder().encode(auth.register(request.json, db))
 
 @app.route("/login", methods=['POST'])
+@cross_origin()
 def login():
     return JSONEncoder().encode(auth.login(request.json, db))
 
 @app.route("/check-auth", methods=['POST'])
+@cross_origin()
 def check_auth():
     return JSONEncoder().encode(auth.check_auth(request.json, db))
 
 @app.route("/profile", methods=['POST'])
+@cross_origin()
 def get_profule():
     return JSONEncoder().encode(users.get_user_profile(request.json, db))
 
 
 @app.route("/reset", methods=['POST'])
+@cross_origin()
 def reset():
     return JSONEncoder().encode(auth.reset(request.json, db))
 
 
 @app.route('/test-output', methods=['GET', 'POST'])
+@cross_origin()
 def test_output():
     content = request.json
     return JSONEncoder().encode(content)

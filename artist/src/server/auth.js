@@ -10,6 +10,7 @@ var userCheck = (userName, password, callBack) => {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
+            console.log(this.responseText);
             var res = JSON.parse(this.responseText);
             callBack(res.result);
         }
