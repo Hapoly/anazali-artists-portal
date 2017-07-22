@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import authService from './server/auth.js';
 import Error from './utility/Error.js'
 
+/* cookies progress */
+import { setCookie, getCookie, removeCookie } from "react-simple-cookie-store"
+
 class Auth extends Component {
-  static propTypes = {
-    cookies: instanceOf(Cookies).isRequired
-  };
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,13 +13,14 @@ class Auth extends Component {
       errors : ''
 		};
   }
-  
+
   login = (event)=>{
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, (result) => {
       if (result.result =='success'){
-        
+          setCookie('user', JSON.stringify(result.user), 3);
+          console.log(result)
           window.location = "http://localhost:3000/dashboard";
       }else{
         console.log(result);

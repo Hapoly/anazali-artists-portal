@@ -3,6 +3,9 @@ import Navbar from './Navbar.js';
 
 import UsersModel from './server/users.js';
 
+/* cookies progress */
+import { setCookie, getCookie, removeCookie } from "react-simple-cookie-store"
+
 class Dashboard extends Component {
 
   constructor(props) {

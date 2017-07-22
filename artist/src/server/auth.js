@@ -16,7 +16,7 @@ var userCheck = (userName, password, callBack) => {
         }
     });
 
-    xhr.open("POST", "http://192.168.43.238:5000/login");
+    xhr.open("POST", "http://94.23.171.142:5000/login");
     xhr.setRequestHeader("content-type", "application/json");
 
     xhr.send(data);
@@ -39,7 +39,7 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
         }
     });
     /* to remove server */
-    xhr.open("POST", "http://192.168.43.238:5000/register");
+    xhr.open("POST", "http://94.23.171.142:5000/register");
 
     xhr.setRequestHeader("content-type", "application/json");
     xhr.send(data);

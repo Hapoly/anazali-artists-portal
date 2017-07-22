@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
 
-class Navbar extends Component {
+/* cookies progress */
+import { setCookie, getCookie, removeCookie } from "react-simple-cookie-store"
 
+class Navbar extends Component {
+  getFullName = () => {
+    //var userInformations = JSON.parse(getCookie('user'));
+    console.log(getCookie('user'));
+    return 'test';
+  }
   adminItems = () => {
     return (
       <div>
       <ul className="right hide-on-med-and-down title-text">
+        <li><a href="profile">{this.getFullName()}</a></li>
         <li><a href="reports">گزارشات</a></li>
         <li><a href="artists">هنرمندان</a></li>
         <li><a href="events">رویداد ها</a></li>
