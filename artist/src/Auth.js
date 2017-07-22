@@ -15,6 +15,11 @@ class Auth extends Component {
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, function(result){
       alert(result? 'success' : 'failed');
+      if (result==='success'){
+          window.location = "http://localhost:3000/dashboard";
+      }else{
+           errors : <Error errorList={frontErrorList} />
+      }
     });    
   }
   register =(event)=>{
