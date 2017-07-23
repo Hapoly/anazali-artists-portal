@@ -5,7 +5,7 @@
             ☐ auth
                 ✔ user auth check @done (7/21/2017, 3:59:30 PM)
                 ✔ user register request @done (7/21/2017, 3:59:32 PM)
-                ☐ user get information
+                ✔ user get information @done (7/23/2017, 9:22:04 AM)
                 ✔ logout the user (terminate session) @done (7/21/2017, 3:59:36 PM)
             ☐ users data
                 ☐ users list

@@ -29,12 +29,18 @@ def login():
 def check_auth():
     return JSONEncoder().encode(auth.check_auth(request.json, db))
 
+# user management routes
 @app.route("/profile", methods=['POST'])
 @cross_origin()
 def get_profule():
     return JSONEncoder().encode(users.get_user_profile(request.json, db))
 
+@app.route("/users", methods=['POST'])
+@cross_origin()
+def users_list():
+    return JSONEncoder().encode(users.get_users_list(request.json, db))
 
+# debug apis
 @app.route("/reset", methods=['POST'])
 @cross_origin()
 def reset():
