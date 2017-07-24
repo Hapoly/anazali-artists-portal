@@ -70,7 +70,10 @@ class Navbar extends Component {
     	<div className="navbar-fixed">
         <nav className="nav-color">
           <div className="nav-wrapper nav-color">
-            <a href="#" className="brand-logo center">Logo</a>
+            <a href="#" className="brand-logo center">
+              <img src="img/logo-big-white.png" alt="" className="responsive-img col"
+              style={{width : "5rem"}}/>
+            </a>
             {this.adminItems()}
           </div>
         </nav>

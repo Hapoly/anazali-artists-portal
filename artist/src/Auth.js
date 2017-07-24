@@ -107,7 +107,7 @@ class Auth extends Component {
   <div className="top-buffer row">
     <div className="row">
       <div className="col s12 m4 offset-m4">
-        <img src="http://94.23.171.142/absenat/site/public/img/logo-big.png" 
+        <img src="img/logo-big.png" 
           alt="" 
           className="responsive-img"
         />
