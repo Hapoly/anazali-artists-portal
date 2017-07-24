@@ -102,22 +102,14 @@ def get_users_list(data, db):
             'info.nickname'      : {'$regex' : data['filter']['nickname']},
 
         }).limit(data['limit']).skip(data['offset'])
-        
-        if permission == "ADMIN":
-            user_list = []
+        user_list = []
             
-            for user in users:
-                user_list.append(user)
-            return {
-                "result" : "success",
-                "users" : user_list
-            }
-        else:
-            # user type is regular
-            return {
-                "result" : "success",
-                "error" : 111
-            }
+        for user in users:
+            user_list.append(user)
+        return {
+            "result" : "success",
+            "users" : user_list
+        }
     
 def create_new_user(data, db):
     if ('email' not in data) or ('password' not in data):
@@ -140,20 +132,76 @@ def create_new_user(data, db):
             "error" : 109
         }
     else:
-        validate_result = user_model.validate(data['user'], db)
-        if validate_result['result']:
-            data['user']['status'] = {
-                'code' : 0,
-                'title' : 'pending'
-            }
-            user_id = db['users'].insert(data['user'])
-            user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
+        if permission == "ADMIN":
+            validate_result = user_model.validate(data['user'], db)
+            if validate_result['result']:
+                data['user']['status'] = {
+                    'code' : 0,
+                    'title' : 'active'
+                }
+                user_id = db['users'].insert(data['user'])
+                user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
+                return {
+                    'result' : 'success',
+                    'user' : user_information
+                }
+            else:
+                return {
+                    'result' : 'failed',
+                    'errors' : validate_result['errors']
+                }
+        else:
             return {
-                'result' : 'success',
-                'user' : user_information
+                "result" : "failed",
+                "error" : 111
             }
+def edit_user(data, db):
+    if ('email' not in data) or ('password' not in data):
+        return {
+            "result" : "failed",
+            "error" : 109
+        }
+
+    if ('user' not in data or 'user_id' not in data):
+        return {
+            "result" : "failed",
+            "error" : 202
+        }
+
+    old_user = db['users'].find_one({'_id' : ObjectId(data['user_id'])})
+
+    if old_user == None:
+        return {
+            "result" : "failed",
+            "error" : 233
+        }
+    permission = utility.get_permissoin_code(data['email'], data['password'], db)
+
+    if permission == None:
+        return {
+            "result" : "failed",
+            "error" : 109
+        }
+    else:
+        if permission == "ADMIN" or old_user['email'] == data['email']:
+            validate_result = user_model.validate(data['user'], db)
+            if validate_result['result']:
+                db['users'].update({'_id' : ObjectId(data['user_id'])},
+                                    {
+                                        '$set' : data['user']
+                                    })
+                data['user']['_id'] = data['user_id']
+                return {
+                    'result' : 'success',
+                    'user' : data['user']
+                }
+            else:
+                return {
+                    'result' : 'failed',
+                    'errors' : validate_result['errors']
+                }
         else:
             return {
                 'result' : 'failed',
-                'errors' : validate_result['errors']
+                'errors' : 111
             }

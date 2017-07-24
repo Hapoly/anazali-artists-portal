@@ -57,6 +57,13 @@ def new_user():
         return '-Error'
     return JSONEncoder().encode(users.create_new_user(request.json, db))
 
+@app.route("/user-edit", methods=['POST'])
+@cross_origin()
+def edit_user():
+    if request.json == None:
+        return '-Error'
+    return JSONEncoder().encode(users.edit_user(request.json, db))
+
 # debug apis
 @app.route("/reset", methods=['POST'])
 @cross_origin()
