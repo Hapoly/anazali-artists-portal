@@ -64,6 +64,13 @@ def edit_user():
         return '-Error'
     return JSONEncoder().encode(users.edit_user(request.json, db))
 
+@app.route("/user-remove", methods=['POST'])
+@cross_origin()
+def remove_user():
+    if request.json == None:
+        return '-Error'
+    return JSONEncoder().encode(users.remove_user(request.json, db))
+
 # debug apis
 @app.route("/reset", methods=['POST'])
 @cross_origin()
