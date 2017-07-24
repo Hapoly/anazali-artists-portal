@@ -3,10 +3,6 @@ import Navbar from './utility/Navbar.js';
 import EventCard from './utility/EventCard.js';
 import UsersModel from './server/users.js';
 
-/* cookies progress */
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-
 class Dashboard extends Component {
 
   constructor(props) {
@@ -56,7 +52,7 @@ class Dashboard extends Component {
              <div className="row"> {/* row for events card*/}
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
-                    <li className="tab col s3"><a className="active" href="#inprogress" className="black-text">رویداد های جاری</a></li>
+                    <li className="tab col s3"><a className="active black-text" href="#inprogress">رویداد های جاری</a></li>
                     <li className="tab col s3"><a href="#futureevents" className="black-text">رویداد های آینده</a></li>
                     <li className="tab col s3"><a href="#request" className="black-text"> درخواست ها</a></li>
                   </ul>
@@ -130,7 +126,7 @@ class Dashboard extends Component {
              <div className="row">
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
-                    <li className="tab col s3"><a className="active" href="#registerreq" className="black-text">درخواست های ثبت نام</a></li>
+                    <li className="tab col s3"><a className="active black-text" href="#registerreq">درخواست های ثبت نام</a></li>
                   </ul>
                 </div>
                 <div id="registerreq" className="col s12 top-buffer">
@@ -165,7 +161,7 @@ class Dashboard extends Component {
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#send" className="black-text">ارسال پیام</a></li>
+                  <li className="tab col s3"><a className="active black-text" href="#send">ارسال پیام</a></li>
                   <li className="tab col s3"><a href="#newmessage" className="black-text">پیام های جدید</a></li>
                 </ul>
               </div>
@@ -252,7 +248,7 @@ class Dashboard extends Component {
              <div className="row">
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
-                    <li className="tab col s3"><a className="active" href="#lastartists" className="black-text">آخرین هنرمندان</a></li>
+                    <li className="tab col s3"><a className="active black-text" href="#lastartists">آخرین هنرمندان</a></li>
                   </ul>
                 </div>
                 <div id="lastartists" className="col s12 top-buffer">

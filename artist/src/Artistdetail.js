@@ -14,7 +14,7 @@ class Artistdetail extends Component {
 				<b>مشخصات</b>
 				</div>
 				<div className="row">
-					<img src="profile.png" />
+					<img alt="profile" src="profile.png" />
 				</div>
 				<div className="row">	 
 				<div className="col s12 m6">

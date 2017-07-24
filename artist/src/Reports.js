@@ -16,7 +16,7 @@ class Reports extends Component {
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#reportslist" className="black-text">گزارشات</a></li>
+                  <li className="tab col s3"><a className="active black-text" href="#reportslist">گزارشات</a></li>
                   <li className="tab col s3"><a href="#newreportsform" className="black-text">پیام های فرم گزارش جدید</a></li>
                 </ul>
               </div>

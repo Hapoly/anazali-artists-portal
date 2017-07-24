@@ -13,7 +13,7 @@ class Artists extends Component {
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#artistslist" className="black-text">هنرمندان</a></li>
+                  <li className="tab col s3"><a className="active black-text" href="#artistslist"s>هنرمندان</a></li>
                   <li className="tab col s3"><a href="#registerreq" className="black-text">درخواست های ثبت نام</a></li>
                 </ul>
               </div>

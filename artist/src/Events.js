@@ -15,7 +15,7 @@ class Events extends Component {
              <div className="row"> {/* row for events card*/}
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
-                    <li className="tab col s3"><a className="active" href="#inprogress" className="black-text">رویداد های جاری</a></li>
+                    <li className="tab col s3"><a className="active black-text" href="#inprogress">رویداد های جاری</a></li>
                     <li className="tab col s3"><a href="#futureevents" className="black-text">رویداد های آینده</a></li>
                     <li className="tab col s3"><a href="#request" className="black-text"> درخواست ها</a></li>
                   </ul>

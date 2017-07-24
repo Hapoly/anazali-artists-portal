@@ -16,7 +16,7 @@ class Messages extends Component {
              <div className="row">
               <div className="col s12">
                 <ul className="tabs tabs-fixed-width">
-                  <li className="tab col s3"><a className="active" href="#send" className="black-text">ارسال پیام</a></li>
+                  <li className="tab col s3"><a className="active black-text" href="#send">ارسال پیام</a></li>
                   <li className="tab col s3"><a href="#newmessage" className="black-text">پیام های جدید</a></li>
                   <li className="tab col s3"><a  href="#sent" className="black-text">پیام های ارسال شده</a></li>
                 </ul>

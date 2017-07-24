@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {getErrorMEssage} from './error-list';
 
 class Error extends Component {
-	constructor(props) {
-		super(props);
-  }
 /* this is the main script render for Auth componenet */
 
   renderErrors = () => {

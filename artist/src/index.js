@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import {Router, Route, browserHistory } from 'react-router';
 import Auth from './Auth.js';
 import Dashboard from './Dashboard.js';
 import Messages from './Messages.js';

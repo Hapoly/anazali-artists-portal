@@ -19,7 +19,7 @@ class Auth extends Component {
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, (result) => {
-      if (result.result =='success'){
+      if (result.result === 'success'){
           cookies.set('user', result.user, { path: '/' });
           cookies.set('email', userName, { path: '/' });
           cookies.set('password', password, { path: '/' });
@@ -48,19 +48,19 @@ class Auth extends Component {
     */
     var frontErrorList = [];
 
-    if(firstname == '')
+    if(firstname === '')
       frontErrorList.push(101);
-    if(lastname == '')
+    if(lastname === '')
       frontErrorList.push(102);
-    if(password == '')
+    if(password === '')
       frontErrorList.push(103);
-    if(email == '')
+    if(email === '')
       frontErrorList.push(104);
-    if(password != rep_password)
+    if(password !== rep_password)
       frontErrorList.push(106);
-    if(fathername == '')
+    if(fathername === '')
       frontErrorList.push(107);
-    if(nickname == '')
+    if(nickname === '')
       frontErrorList.push(108);
 
     if(frontErrorList.length > 0){
@@ -120,7 +120,7 @@ class Auth extends Component {
           <div className="row">
             <div className="col s12">
               <ul className="tabs tabs-fixed-width">
-                <li className="tab col s3"><a className="active" href="#login" className="black-text title-size">ورود</a></li>
+                <li className="tab col s3"><a className="active black-text title-size" href="#login">ورود</a></li>
                 <li className="tab col s3"><a href="#register" className="black-text title-size">ثبت نام</a></li>
               </ul>
             </div>
