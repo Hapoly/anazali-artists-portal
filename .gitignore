@@ -1,2 +1,5 @@
 api-server/config.py
 api-server/__pycache__/
+api-server/controllers/__pycache__/users.cpython-35.pyc
+api-server/controllers/validator/__pycache__/__init__.cpython-35.pyc
+api-server/controllers/__pycache__/users.cpython-35.pyc

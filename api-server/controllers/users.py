@@ -2,6 +2,7 @@ import utility
 from bson.objectid import ObjectId
 import hashlib
 
+import user_model
 '''
 {
   "email" : "darbandi1996@gmail.com",
@@ -116,4 +117,34 @@ def get_users_list(data, db):
             return {
                 "result" : "success",
                 "error" : 111
+            }
+    
+def create_new_user(data, db):
+    if ('email' not in data) or ('password' not in data):
+        return {
+            "result" : "failed",
+            "error" : 109
+        }
+
+    if ('user' not in data):
+        return {
+            "result" : "failed",
+            "error" : 202
+        }
+
+    permission = utility.get_permissoin_code(data['email'], data['password'], db)
+
+    if permission == None:
+        return {
+            "result" : "failed",
+            "error" : 109
+        }
+    else:
+        validate_result = user_model.validate(data['user'])
+        if validate_result.result:
+            pass
+        else:
+            return {
+                'result' : 'failed',
+                'errors' : validate_result.errors
             }
