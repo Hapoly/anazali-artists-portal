@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar.js';
-
+import EventCard from './utility/EventCard.js';
 import UsersModel from './server/users.js';
 
 /* cookies progress */
@@ -65,24 +65,11 @@ class Dashboard extends Component {
              <div id="inprogress" className="col s12 top-buffer">
               <div className="row">
                 <div className="col s12">
-                   <table className="bordered">
-                    <thead>
-                      <tr>
-                          <th style={{textAlign : "right"}}>عنوان رویداد</th>
-                          <th style={{textAlign : "right"}}>دسته بندی</th>
-                          <th>تاریخ</th>
-                          <th>جزییات</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style={{textAlign : "right"}}>گردهمایی</td>
-                        <td style={{textAlign : "right"}}>جلسه هنرمندان</td>
-                        <td><a href="#"><i className="small material-icons">today</i></a></td>
-                        <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
-                      </tr>
-                    </tbody>
-                </table>
+                   
+                   
+                      <EventCard/>
+                    
+                
                 </div>
               </div>
             </div>
