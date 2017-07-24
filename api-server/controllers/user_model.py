@@ -16,14 +16,6 @@ def validate(user, db, temp = False):
     if 'type' not in user: # error
         errors.append(406) 
     
-    if 'status' not in user: # error
-        errors.append(407) 
-    else:
-        if 'code' not in user['status']: # error
-            errors.append(408) 
-        if 'title' not in user['status']: # error
-            errors.append(409) 
-    
     if 'info' not in user:
         errors.append(410) 
     else:
@@ -37,12 +29,12 @@ def validate(user, db, temp = False):
             if len(user['info']['art_fields']) < 0:
                 errors.append(412)
             else:
-                for art_field in user['info']['art_field']: # error
+                for art_field in user['info']['art_fields']: # error
                     if 'code' not in art_field:
                         errors.append(413)
                     if 'title' not in art_field:
                         errors.append(414)
-        if 'relogion' not in user['info']: # error
+        if 'religion' not in user['info']: # error
             errors.append(415)
         else:
             if 'code' not in user['info']['religion']: # error
@@ -92,22 +84,22 @@ def validate(user, db, temp = False):
             if 'date' not in user['info']['birth']: # error
                 errors.append(433)
             else:
-                if 'date' not in user['info']['birth']['date']: # error
+                if 'year' not in user['info']['birth']['date']: # error
                     errors.append(434)
                 if 'month' not in user['info']['birth']['date']: # error
                     errors.append(435)
                 if 'day' not in user['info']['birth']['date']: # error
                     errors.append(436)
 
-            if 'plcae' not in user['info']['birth']: # error
+            if 'place' not in user['info']['birth']: # error
                 errors.append(437)
         
         if 'pictures' not in user['info']: # error
             errors.append(438)
         else:
-            if 'id_card' not in user['info']['picture']: # error
+            if 'id_card' not in user['info']['pictures']: # error
                 errors.append(439)
-            if 'profile' not in user['info']['picture']: # error
+            if 'profile' not in user['info']['pictures']: # error
                 errors.append(440)
 
     return {

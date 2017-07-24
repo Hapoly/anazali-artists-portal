@@ -17,28 +17,45 @@ def index():
 @app.route("/register", methods=['POST'])
 @cross_origin()
 def register():
+    if request.json == None:
+        return '-Error'
     return JSONEncoder().encode(auth.register(request.json, db))
 
 @app.route("/login", methods=['POST'])
 @cross_origin()
 def login():
+    if request.json == None:
+        return '-Error'
     return JSONEncoder().encode(auth.login(request.json, db))
 
 @app.route("/check-auth", methods=['POST'])
 @cross_origin()
 def check_auth():
+    if request.json == None:
+        return '-Error'
     return JSONEncoder().encode(auth.check_auth(request.json, db))
 
 # user management routes
 @app.route("/profile", methods=['POST'])
 @cross_origin()
 def get_profule():
+    if request.json == None:
+        return '-Error'
     return JSONEncoder().encode(users.get_user_profile(request.json, db))
 
 @app.route("/users", methods=['POST'])
 @cross_origin()
 def users_list():
+    if request.json == None:
+        return '-Error'
     return JSONEncoder().encode(users.get_users_list(request.json, db))
+
+@app.route("/user-new", methods=['POST'])
+@cross_origin()
+def new_user():
+    if request.json == None:
+        return '-Error'
+    return JSONEncoder().encode(users.create_new_user(request.json, db))
 
 # debug apis
 @app.route("/reset", methods=['POST'])

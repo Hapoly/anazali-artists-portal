@@ -140,11 +140,20 @@ def create_new_user(data, db):
             "error" : 109
         }
     else:
-        validate_result = user_model.validate(data['user'])
-        if validate_result.result:
-            pass
+        validate_result = user_model.validate(data['user'], db)
+        if validate_result['result']:
+            data['user']['status'] = {
+                'code' : 0,
+                'title' : 'pending'
+            }
+            user_id = db['users'].insert(data['user'])
+            user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
+            return {
+                'result' : 'success',
+                'user' : user_information
+            }
         else:
             return {
                 'result' : 'failed',
-                'errors' : validate_result.errors
+                'errors' : validate_result['errors']
             }
