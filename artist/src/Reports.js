@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar.js';
+import Navbar from './utility/Navbar.js';
 
 class Reports extends Component {
   render() {
