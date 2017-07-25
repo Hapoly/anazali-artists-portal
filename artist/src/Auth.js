@@ -130,7 +130,7 @@ class Auth extends Component {
                 <div className="col s12">
                   <div className="row"> 
                     <div className="input-field col s6">
-                      <input id="login_password" type="text" className="validate"/>
+                      <input id="login_password" type="password" className="validate"/>
                       <label for="login_password">رمز عبور</label>
                     </div>
                     <div className="input-field col s6">

@@ -5,28 +5,21 @@ class EventCard extends Component {
     return (
 <div className="row">
   <div className="col m12 s12">
-      <div className="card-panel white">
-     <div className="row">   
-        <div className="col s12 m6">
-             <div className="card-image" style={{marginLeft: 0}}>
-                <img src="https://lorempixel.com/100/190/nature/6"/>
-            </div> 
-            
+      <div className="card horizontal"style={{direction:"ltr"}}>
+      <div className="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6" style={{width:"150px",height:"190px"}}/>
+      </div>
+      <div className="card-stacked">
+        <h4 style={{direction:"rtl",marginRight:"20px"}}>عنوان رویداد</h4>
+        <div className="card-content" style={{direction:"rtl"}}>
+          
+          <p>توضیحات...</p>
         </div>
-        <div className="col s12 m6">
-         <div className="card-stacked">
-            <div className="card-content">
-            <h2>عنوان رویداد</h2>
-            <p>توضیحات رویداد</p>
-            </div>
-            <div className="card-action">
-            <a href="#">اطلاعات بیشتر</a>
-            </div>
-        </div> 
-        
+        <div className="card-action" style={{direction:"rtl"}}>
+          <a href="#">اطلاعات بیشتر</a>
         </div>
       </div>
-      </div>
+    </div>
     </div>
     </div>
  
