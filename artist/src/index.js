@@ -9,12 +9,17 @@ import Events from './Events.js';
 import Artistdetail from './Artistdetail.js';
 import Reports from './Reports.js';
 
-
 import registerServiceWorker from './registerServiceWorker';
-
+/* cookies progress */
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+const not_logged = () => {
+	if(cookies.get('email') !== undefined)
+		window.location = './dashboard';
+}
 ReactDOM.render(
 		<Router history = {browserHistory}>
-			<Route path = "/" component = {Auth}/>
+			<Route path = "/" component = {Auth} onEnter={not_logged}/>
 			<Route path="/dashboard" component={Dashboard}/>
 			<Route path="/messages" component={Messages}/>
 			<Route path="/artists" component={Artists}/>

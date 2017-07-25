@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import authService from './server/auth.js';
+import authService from './libs/auth.js';
 import Error from './utility/Error.js'
 
 /* cookies progress */
@@ -12,7 +12,7 @@ class Auth extends Component {
 		this.state = {
       logged : false,
       errors : ''
-		};
+    };
   }
 
   login = (event)=>{

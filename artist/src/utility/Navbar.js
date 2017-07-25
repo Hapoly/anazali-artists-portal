@@ -11,6 +11,13 @@ class Navbar extends Component {
     var last_name = cookies.get('user').last_name;
     return first_name + ' ' + last_name;
   }
+
+  logout = (event) => {
+    cookies.remove('user');
+    cookies.remove('email');
+    cookies.remove('password');
+    window.location = "http://localhost:3000";
+  }
   adminItems = () => {
     return (
       <div>
@@ -22,7 +29,9 @@ class Navbar extends Component {
         <li><a href="profile">{this.getFullName()}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-      <li><a href="#"><button className="glyphicon glyphicon-log-in btn " style={{backgroundColor :" #006064"}}>خروج</button> </a></li>
+      <li>
+        <button onClick={this.logout} className="glyphicon glyphicon-log-in btn cyan darken-4">خروج</button>
+      </li>
     </ul>
       <ul className="right hide-on-large-only" style={{paddingRight: "0px"}}>
         <li>
