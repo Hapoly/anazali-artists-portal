@@ -50,7 +50,7 @@ ReactDOM.render(
 					<Route path="/artistdetail" 
 						component={is_admin()?Artistdetail:Artistdetail} exact/>
 					<Route path="/reports" 
-						component={is_admin()?Reports:Reports} exact/>
+						component={is_admin()?Reports:Dashboard} exact/>
 
 					<Redirect from="/login" to="/dashboard"/>
 					<Redirect from="/" to="/dashboard"/>

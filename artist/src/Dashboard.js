@@ -17,29 +17,9 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.generateSignupRequests();
-  }
-  generateSignupRequests = () => {
-    var requests = UsersModel.getNewSignUpRequests();
-    var list = [];
-    for(var i =0; i<requests.length; i++){
-      var req = requests[i];
-      console.log("test");
-      list.push(<tr>
-                <td style={{textAlign : "right"}}>{req.firstName}</td>
-                <td style={{textAlign : "right"}}>{req.lastName}</td>
-                <td>
-                <a href="!#"><i className="small material-icons">info_outline</i></a>
-                </td>
-                <td>
-                <button className="btn btn-success btn-sm">تایید</button> <button className="btn btn-danger btn-sm">رد</button>
-                </td>
-                </tr>
-        );
-    }
-    this.setState({
-      signupRequests : list
-    });
+    UsersModel.getNewSignUpRequests(
+      this,
+      cookies.get('email'), cookies.get('password'));
   }
   render() {
     return (
