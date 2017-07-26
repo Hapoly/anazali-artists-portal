@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter ,Switch } from 'react-router-dom'
-import Auth from './Auth.js';
+import Auth from './Pages/Auth.js';
 import Dashboard from './Dashboard.js';
 import Messages from './Messages.js';
 import Artists from './Artists.js';
