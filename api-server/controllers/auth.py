@@ -3,75 +3,28 @@ import hashlib
 import time
 
 def register(data, db):
-    errors = []
-
-    user_informations = {}
-    if 'first_name' not in data:
-        errors.append(101)
-    if data['first_name'] == '':
-        errors.append(101)
-
-    if 'last_name' not in data:
-        errors.append(102)
-    if data['last_name'] == '':
-        errors.append(102)
-
-    if 'password' not in data:
-        errors.append(103)
-    if data['password'] == '':
-        errors.append(103)
-
-    if 'email' not in data:
-        errors.append(104)
-    else:
-        if data['email'] == '':
-            errors.append(104)
-
-        # check if email exits
-        users = db['users'].find({'email': data['email']})
-        for user in users:
-            errors.append(105)
-            return {
-                'results' : 'failed',
-                'errors' : errors
-            }
-        
-    if 'father_name' not in data:
-        errors.append(107)
-    if data['father_name'] == '':
-        errors.append(107)
-
-    if 'nickname' not in data:
-        errors.append(108)
-    if data['nickname'] == '':
-        errors.append(108)
-
-
-    
-    if len(errors) > 0:
+    if ('user' not in data):
         return {
-                'results' : 'failed',
-                'errors' : errors
-            }
-    else:
-        db['users'].insert({
-            "first_name" : data['first_name'],
-            "last_name" : data['last_name'],
-            "password" : hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest(),
-            "email" : data['email'],
-            "type" : "ADMIN",
-            "info" : {
-                "father_name" : data['father_name'],
-                "nickname" : data['nickname']
-            }
-        })
-
-        user_informations = db['users'].find_one({'email' : data['email']})
-        user_informations['_id'] = str(user_informations['_id'])
+            "result" : "failed",
+            "errors" : 202
+        }
+    validate_result = user_model.validate(data['user'], db)
+    if validate_result['result']:
+        data['user']['status'] = {
+            "code": 0,
+            "title": "درخواست داده شده برای ثبت نام"
+        }
+        user_id = db['users'].insert(data['user'])
+        user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
         return {
-                'result' : 'sucess',
-                'info' : user_informations
-            }
+            'result' : 'success',
+            'user' : user_information
+        }
+    else:
+        return {
+            'result' : 'failed',
+            'errors' : validate_result['errors']
+        }
 
 def login(data, db):
     hashed_password = hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest()

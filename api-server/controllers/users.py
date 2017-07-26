@@ -136,8 +136,8 @@ def create_new_user(data, db):
             validate_result = user_model.validate(data['user'], db)
             if validate_result['result']:
                 data['user']['status'] = {
-                    'code' : 0,
-                    'title' : 'active'
+                    "code": 1,
+                    "title": "فعال"
                 }
                 user_id = db['users'].insert(data['user'])
                 user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
