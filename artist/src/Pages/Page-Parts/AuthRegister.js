@@ -183,7 +183,24 @@ class AuthRegister extends Component {
                 <label for="birth_place">* محل تولد</label>
               </div>
             </div>
-            
+            <div className="file-field input-field row">
+              <div className="btn">
+                <span>عکس پرسنلی</span>
+                <input id="profile_pic" type="file"/>
+              </div>
+              <div className="file-path-wrapper">
+                <input className="file-path validate" type="text"/>
+              </div>
+            </div>
+            <div className="file-field input-field row">
+              <div className="btn">
+                <span>اسکن کارت ملی</span>
+                <input id="id_card_pic" type="file"/>
+              </div>
+              <div className="file-path-wrapper">
+                <input className="file-path validate" type="text"/>
+              </div>
+            </div>
             <div className="row">
               <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
               </button>
