@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors-prefetch-middleware": "^1.0.0",
     "express": "^4.15.3",
+    "images-upload-middleware": "^1.1.1",
     "react-images-uploader": "^1.1.0"
   },
   "devDependencies": {
