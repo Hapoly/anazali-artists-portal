@@ -183,17 +183,7 @@ class AuthRegister extends Component {
                 <label for="birth_place">* محل تولد</label>
               </div>
             </div>
-            <ImagesUploader
-              url="http://localhost:9090/imageUpload"
-              optimisticPreviews
-              multiple={false}
-              onLoadEnd={(err) => {
-                  if (err) {
-                      console.error(err);
-                  }
-              }}
-              label="عکس پرسنلی"
-            />
+            
             <div className="row">
               <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
               </button>
