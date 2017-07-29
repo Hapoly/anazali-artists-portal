@@ -1,11 +1,12 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import json
-
+import os
 # configuration file
 from config import *
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 CORS(app)
 
 @app.route("/")
@@ -17,6 +18,21 @@ def index():
 @app.route("/register", methods=['POST'])
 @cross_origin()
 def register():
+    profile = request.files['profile']
+    scan = request.files['scan']
+    user_info = request.form['info']
+    # weak. need to fix (debug)
+    profile_filename = secure_filename(profile.filename)
+    profile.save(os.path.join(app.config['UPLOAD_FOLDER'], profile_filename))
+    scan_filename = secure_filename(scan.filename)
+    scan.save(os.path.join(app.config['UPLOAD_FOLDER'], scan_filename))
+
+    print('upload successfull:')
+    print('profile: {0}'.format(profile_filename))
+    print('scan: {0}'.format(scan_filename))
+    
+    print(user_info)
+    return 'got!'
     if request.json == None:
         return '-Error'
     return JSONEncoder().encode(auth.register(request.json, db))

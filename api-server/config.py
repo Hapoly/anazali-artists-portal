@@ -5,7 +5,13 @@ import sys
 
 sys.path.append('controllers')
 from controllers import *
+from werkzeug.utils import secure_filename
 
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = set(['jpg', 'jpeg'])
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 # db auth
 username = input("mongoDB username: ")
 password = input("mongoDB password: ")
