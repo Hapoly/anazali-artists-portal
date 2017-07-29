@@ -17,7 +17,7 @@
       $(document).ready(function(){
         $('ul.tabs').tabs();
 
-        $('.art-fields').material_chip({
+        $('.art-fields-autocomplete').material_chip({
           placeholder: '+ حرفه های بیشتر',
           secondaryPlaceholder: 'حرفه های هنری',
           autocompleteOptions: {
@@ -47,6 +47,21 @@
             limit: Infinity,
             minLength: 1
           }
+        });
+
+        $('.religion-autocomplete').autocomplete({
+          data: {
+              "اسلام شیعه": null,
+              "اسلام سنی": null,
+              "مسیحیت": null,
+              "کلیمی": null,
+              "زرتشتی": null,
+              "رضا": null,
+            },
+            limit: 2,
+            onAutocomplete: function(val) {
+            },
+            minLength: 1,
         });
       });
     </script>

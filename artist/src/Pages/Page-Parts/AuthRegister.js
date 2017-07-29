@@ -125,7 +125,13 @@ class AuthRegister extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="chips chips-autocomplete art-fields">test</div>
+              <div className="chips chips-autocomplete art-fields-autocomplete">test</div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <input type="text" id="autocomplete-input" className="autocomplete religion-autocomplete"/>
+                <label for="autocomplete-input">مذهب</label>
+              </div>
             </div>
             <div className="row">
               <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
