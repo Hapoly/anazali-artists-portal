@@ -13,58 +13,7 @@
 
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('ul.tabs').tabs();
-
-        $('.art-fields-autocomplete').material_chip({
-          placeholder: '+ حرفه های بیشتر',
-          secondaryPlaceholder: 'حرفه های هنری',
-          autocompleteOptions: {
-            data: {
-              'خوانندگی': null,
-              'نوازندگی': null,
-              'تئاتر': null,
-              'سینما': null,
-              'فیلم نامه نویسی': null,
-              'گیتار': null,
-              'منبت کاری': null,
-              'مجسمه سازی': null,
-              'نقاشی آبرنگ': null,
-              'نقاشی مداد شمعی': null,
-              'نقاشی': null,
-              'میکس': null,
-              'پیانو': null,
-              'بازیگری': null,
-              'صدابرداری': null,
-              'دی جی': null,
-              'عکاسی': null,
-              'فیلم برداری': null,
-              'موسیقی سنتی': null,
-              'تمبک': null,
-              'پانتومیم': null,
-            },
-            limit: Infinity,
-            minLength: 1
-          }
-        });
-
-        $('.religion-autocomplete').autocomplete({
-          data: {
-              "اسلام شیعه": null,
-              "اسلام سنی": null,
-              "مسیحیت": null,
-              "کلیمی": null,
-              "زرتشتی": null,
-              "رضا": null,
-            },
-            limit: 2,
-            onAutocomplete: function(val) {
-            },
-            minLength: 1,
-        });
-      });
-    </script>
+    <script type="text/javascript" src="js/functions.js"></script>
     <title>پرتال هنرمندان منطقه آزاد</title>
   </head>
   <body class="teal lighten-5" style="direction: rtl;">

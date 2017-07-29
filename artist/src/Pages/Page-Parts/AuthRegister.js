@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import authService from '../../libs/auth.js';
 import Error from '../../utility/Error.js'
+import ImagesUploader from 'react-images-uploader';
+import 'react-images-uploader/styles.css';
+import 'react-images-uploader/font.css';
 
 /* cookies progress */
 import Cookies from 'universal-cookie';
@@ -125,19 +128,76 @@ class AuthRegister extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="chips chips-autocomplete art-fields-autocomplete">test</div>
+              <div id="art-fields" className="chips chips-autocomplete art-fields-autocomplete"></div>
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <input type="text" id="autocomplete-input" className="autocomplete religion-autocomplete"/>
-                <label for="autocomplete-input">مذهب</label>
+                <input type="text" id="religion" className="autocomplete religion-autocomplete"/>
+                <label for="autocomplete-input">* مذهب</label>
               </div>
             </div>
+            <div className="row">
+              <div className="input-field col m6 s12 right">
+                <input id="habitate_years" type="number" className="validate"/>
+                <label for="habitate_years">* سال های سکونت</label>
+              </div>
+              <div className="input-field col m6 s12 right">
+                <input type="text" id="habitate_place" className="autocomplete habitate-autocomplete"/>
+                <label for="habitate_place">* محل سکونت</label>
+              </div>
+            </div>
+            <div className="row"> 
+              <div className="input-field col m6 s12 right">
+                <input  id="phone" type="text" className="validate"/>
+                <label for="phone">* شماره تماس ثابت</label>
+              </div>
+              <div className="input-field col m6 s12 right">
+                <input id="cellphone" type="text" className="validate"/>
+                <label for="cellphone">* شماره همراه</label>
+              </div>
+            </div>
+            <div className="row"> 
+              <div className="input-field col m12 s12 right">
+                <input id="address" type="text" className="validate"/>
+                <label for="address">* آدرس</label>
+              </div>
+            </div>
+            <div className="row">
+              <div id="educations" className="chips chips-autocomplete educations-autocomplete"></div>
+            </div>
+            <div className="row"> 
+              <div className="input-field col m3 s6 right">
+                <input  id="birth_day" type="number" min="1" max="30" className="validate"/>
+                <label for="birth_day">* روز تولد</label>
+              </div>
+              <div className="input-field col m3 s6 right">
+                <input id="birth_month" type="number" min="1" max="12" className="validate"/>
+                <label for="birth_month">* ماه تولد</label>
+              </div>
+              <div className="input-field col m3 s6 right">
+                <input id="birth_year" type="number" min="1300" max="1400" className="validate"/>
+                <label for="birth_year">* سال تولد</label>
+              </div>
+              <div className="input-field col m3 s6 right">
+                <input id="birth_place" type="text" className="validate"/>
+                <label for="birth_place">* محل تولد</label>
+              </div>
+            </div>
+            <ImagesUploader
+              url="http://localhost:9090/imageUpload"
+              optimisticPreviews
+              multiple={false}
+              onLoadEnd={(err) => {
+                  if (err) {
+                      console.error(err);
+                  }
+              }}
+              label="عکس پرسنلی"
+            />
             <div className="row">
               <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
               </button>
             </div>
-
           </div>
 
         </div>
