@@ -16,6 +16,38 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('ul.tabs').tabs();
+
+        $('.art-fields').material_chip({
+          placeholder: '+ حرفه های بیشتر',
+          secondaryPlaceholder: 'حرفه های هنری',
+          autocompleteOptions: {
+            data: {
+              'خوانندگی': null,
+              'نوازندگی': null,
+              'تئاتر': null,
+              'سینما': null,
+              'فیلم نامه نویسی': null,
+              'گیتار': null,
+              'منبت کاری': null,
+              'مجسمه سازی': null,
+              'نقاشی آبرنگ': null,
+              'نقاشی مداد شمعی': null,
+              'نقاشی': null,
+              'میکس': null,
+              'پیانو': null,
+              'بازیگری': null,
+              'صدابرداری': null,
+              'دی جی': null,
+              'عکاسی': null,
+              'فیلم برداری': null,
+              'موسیقی سنتی': null,
+              'تمبک': null,
+              'پانتومیم': null,
+            },
+            limit: Infinity,
+            minLength: 1
+          }
+        });
       });
     </script>
     <title>پرتال هنرمندان منطقه آزاد</title>

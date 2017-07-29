@@ -124,7 +124,9 @@ class AuthRegister extends Component {
                 <label for="reg_artname">* نام هنری</label>
               </div>
             </div>
-
+            <div className="row">
+              <div className="chips chips-autocomplete art-fields">test</div>
+            </div>
             <div className="row">
               <button onClick={this.register} className="btn waves-effect waves-light" type="button" >ثبت نام
               </button>
