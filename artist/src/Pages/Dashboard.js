@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './utility/Navbar.js';
-import EventCard from './utility/EventCard.js';
-import UsersModel from './libs/users.js';
+import Navbar from '../utility/Navbar.js';
+import EventCard from '../utility/EventCard.js';
+import UsersModel from '../libs/users.js';
 
 /* cookies progress */
 import Cookies from 'universal-cookie';

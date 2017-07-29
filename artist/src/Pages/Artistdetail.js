@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './utility/Navbar.js';
+import Navbar from '../utility/Navbar.js';
 
 class Artistdetail extends Component {
   render() {

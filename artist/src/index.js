@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter ,Switch } from 'react-router-dom'
-import Auth from './Pages/Auth.js';
-import Dashboard from './Dashboard.js';
-import Messages from './Messages.js';
-import Artists from './Artists.js';
-import Events from './Events.js';
-import Artistdetail from './Artistdetail.js';
-import Reports from './Reports.js';
-import NoMatch from './Pages/NoMatch';
+import Auth 						from './Pages/Auth.js';
+import Dashboard 				from './Pages/Dashboard.js';
+import Messages 				from './Pages/Messages.js';
+import Artists 					from './Pages/Artists.js';
+import Events 					from './Pages/Events.js';
+import Artistdetail 		from './Pages/Artistdetail.js';
+import Reports 					from './Pages/Reports.js';
+import NoMatch 					from './Pages/NoMatch';
 
 import registerServiceWorker from './registerServiceWorker';
 /* cookies progress */
@@ -22,19 +22,6 @@ const logged_in = () => {
 const is_admin = () => {
 	return cookies.get('user').type === 'ADMIN';
 }
-const PrivateRoute = ({ component: Component, hasPermission, redirect, ...rest }) => (
-  <Route {...rest} render={props => (
-    hasPermission ? (
-      <Component {...props}/>
-    ) : (
-      <Redirect to={{
-        pathname: redirect,
-        state: { from: props.location }
-      }}/>
-    )
-  )}/>
-)
-
 ReactDOM.render(
 		<Router>
 				{logged_in()?
