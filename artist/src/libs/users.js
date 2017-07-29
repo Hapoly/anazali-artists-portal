@@ -33,8 +33,21 @@ const getNewSignUpRequests = (component, email, password) => {
 }
 
 const getLastAcceptedUsers = (email, password, on_response) => {
-
+	var list = [
+		{
+			firstName : 'امیر',
+			lastName : 'یگانه',
+			id : '4321',
+			fields : [
+				{
+					id : '48343',
+					title : 'جوشکاری'
+				}
+			]
+		}
+	]
 }
 module.exports = {
-	getNewSignUpRequests
+	getNewSignUpRequests,
+	getLastAcceptedUsers
 }

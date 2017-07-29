@@ -26,8 +26,6 @@ class ProfileCard extends Component {
     </div>
   </div>
 </div>
-
-
     );
   }
 }

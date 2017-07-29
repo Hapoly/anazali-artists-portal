@@ -20,6 +20,9 @@ class Dashboard extends Component {
     UsersModel.getNewSignUpRequests(
       this,
       cookies.get('email'), cookies.get('password'));
+    UsersModel.getLastAcceptedUsers(
+      this,
+      cookies.get('email'), cookies.get('password'));
   }
   render() {
     return (
@@ -227,46 +230,30 @@ class Dashboard extends Component {
           </div>
           </div>
           <div className="col s12 m6 ">
-        {/*card:last artists*/}
+            {/*card:last artists*/}
             <div className="card-panel white ">
-             <div className="row">
+              <div className="row">
                 <div className="col s12">
                   <ul className="tabs tabs-fixed-width">
                     <li className="tab col s3"><a className="active black-text" href="#lastartists">آخرین هنرمندان</a></li>
                   </ul>
                 </div>
                 <div id="lastartists" className="col s12 top-buffer">
-                <div className="row">
-                  <div className="col s12">
-                     <table className="bordered">
-                      <thead>
-                        <tr>
-                          <th>نام و نام خانوادگی</th>
-                          <th>حوزه کاری</th>
-                          <th >جزییات</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                           <td>علی اکبری</td>
-                          <td>خواننده</td>
-                         <td><a href="#"><i className="small material-icons">info_outline</i></a></td>
-
-                        </tr>
-                      </tbody>
-                  </table>
+                  <div className="row">
+                    <div className="col s12">
+                    {this.state.lastArtists}
+                    </div>
                   </div>
                 </div>
-            </div>
 
-                </div>
-                </div>
-              {/* finish last artists*/}
               </div>
+            </div>
+            {/* finish last artists*/}
           </div>
         </div>
       </div>
-      </div>
+    </div>
+  </div>
     );
   }
 }
