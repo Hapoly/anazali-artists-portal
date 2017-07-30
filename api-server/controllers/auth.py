@@ -1,20 +1,21 @@
 from bson.objectid import ObjectId
 import hashlib
 import time
+import user_model
 
-def register(data, db):
-    if ('user' not in data):
-        return {
-            "result" : "failed",
-            "errors" : 202
-        }
-    validate_result = user_model.validate(data['user'], db)
+def register(data, pictures, db):
+    
+    data['info']['pictures'] = pictures
+    data['type'] = 'REG'
+
+    validate_result = user_model.validate(data, db)
     if validate_result['result']:
-        data['user']['status'] = {
+        data['status'] = {
             "code": 0,
             "title": "درخواست داده شده برای ثبت نام"
         }
-        user_id = db['users'].insert(data['user'])
+        
+        user_id = db['users'].insert(data)
         user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
         return {
             'result' : 'success',

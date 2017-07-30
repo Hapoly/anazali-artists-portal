@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from flask_cors import CORS, cross_origin
 import json
 import os
@@ -33,18 +33,15 @@ def register():
     scan_filename = secure_filename(scan.filename)
     scan.save(os.path.join(app.config['UPLOAD_FOLDER'], scan_filename))
 
-    print('upload successfull:')
-    print('profile: {0}'.format(profile_filename))
-    print('scan: {0}'.format(scan_filename))
     
-    print(user_info)
-    return 'got!'
-    if request.json == None:
+    if user_info == None:
         return '-Error'
-    return JSONEncoder().encode(auth.register(request.json, {
+
+    user_info = json.loads(user_info)
+    return JSONEncoder().encode(auth.register(user_info, {
             'id_card' : scan_filename,
             'profile' : profile_filename
-        }db))
+        },db))
 
 @app.route("/login", methods=['POST'])
 @cross_origin()
@@ -108,6 +105,12 @@ def reset():
 def test_output():
     content = request.json
     return JSONEncoder().encode(content)
+
+@app.route('/test-output', methods=['GET', 'POST'])
+@cross_origin()
+def image():
+    
+    
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
