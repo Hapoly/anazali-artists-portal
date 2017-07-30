@@ -11,9 +11,48 @@ const cookies = new Cookies();
 
 class AuthRegister extends Component {
 	constructor(props) {
-		super(props);
+    super(props);
+    this.state = {
+      profile_pic : {
+        uploaded : false
+      },
+      id_card_pic : {
+        uploaded : false
+      }
+    }
   }
+  on_id_card_upload = (event) => {
+    event.preventDefault();
 
+    let reader = new FileReader();
+    let file = event.target.files[0];
+    reader.onloadend = () => {
+      this.setState({
+        id_card_pic : {
+          uploaded : true,
+          file: file,
+          imagePreviewUrl: reader.result
+        }
+      });
+    }
+    reader.readAsDataURL(file)
+  }
+  on_profile_pic_upload = (event) => {
+    event.preventDefault();
+
+    let reader = new FileReader();
+    let file = event.target.files[0];
+    reader.onloadend = () => {
+      this.setState({
+        profile_pic : {
+          uploaded : true,
+          file: file,
+          imagePreviewUrl: reader.result
+        }
+      });
+    }
+    reader.readAsDataURL(file)
+  }
   register =(event)=>{
     var firstname = document.getElementById("reg_firstname").value;
     var lastname = document.getElementById("reg_lastname").value;
@@ -186,7 +225,7 @@ class AuthRegister extends Component {
             <div className="file-field input-field row">
               <div className="btn">
                 <span>عکس پرسنلی</span>
-                <input id="profile_pic" type="file"/>
+                <input id="profile_pic" onChange={this.on_profile_pic_upload} type="file"/>
               </div>
               <div className="file-path-wrapper">
                 <input className="file-path validate" type="text"/>
@@ -195,10 +234,22 @@ class AuthRegister extends Component {
             <div className="file-field input-field row">
               <div className="btn">
                 <span>اسکن کارت ملی</span>
-                <input id="id_card_pic" type="file"/>
+                <input id="id_card_pic" onChange={this.on_id_card_upload} type="file"/>
               </div>
               <div className="file-path-wrapper">
                 <input className="file-path validate" type="text"/>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col m6 s12">
+                <img className="responsive-img" src={this.state.profile_pic.uploaded? 
+                                                      this.state.profile_pic.imagePreviewUrl
+                                                    : 'img/profile.png'}/>
+              </div>
+              <div className="col m6 s12">
+                <img className="responsive-img" src={this.state.id_card_pic.uploaded? 
+                                                      this.state.id_card_pic.imagePreviewUrl
+                                                    : 'img/id-card.png'}/>
               </div>
             </div>
             <div className="row">
