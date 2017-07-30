@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_file
 from flask_cors import CORS, cross_origin
 import json
 import os
@@ -106,11 +106,11 @@ def test_output():
     content = request.json
     return JSONEncoder().encode(content)
 
-@app.route('/test-output', methods=['GET', 'POST'])
+@app.route('/image/<image_name>', methods=['GET', 'POST'])
 @cross_origin()
-def image():
-    
-    
+def image(image_name):
+    # this is a bug :) just spoiling!
+    return send_file('{1}/{0}'.format(image_name, UPLOAD_FOLDER), mimetype='image/gif')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
