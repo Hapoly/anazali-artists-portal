@@ -33,19 +33,26 @@ var get_art_fields_list_by_title = (titles_array) => {
 }
 var get_educations_list_by_title = (titles_array) => {
     var data = {
-        "دیپلم - ریاضی فیزیک":  1,
-        "دیپلم - هنر":          2,
-        "فوق دیپلم - نوازندگی": 3,
-        "لیسانس - موسیقی":      4,
-        "لیسانس - سینما":       5,
-        "لیسانس - تئاتر":       6,
-        "لیسانس - عکاسی":       7,
+        "دیپلم - ریاضی فیزیک":  [1,5],
+        "دیپلم - هنر":          [1,7],
+        "فوق دیپلم - نوازندگی": [2,9],
+        "لیسانس - موسیقی":      [4,3],
+        "لیسانس - سینما":       [4,1],
+        "لیسانس - تئاتر":       [4,2],
+        "لیسانس - عکاسی":       [4,9],
     }
     var result = []
     for(var i=0; i<titles_array.length; i++){
+        var titles = titles_array[i].split(' - ')
         result.push({
-            code : data[titles_array[i]],
-            title : titles_array[i],
+            degree : {
+                code : data[titles_array[i]][0],
+                title : titles[0],
+            },
+            field : {
+                code : data[titles_array[i]][1],
+                title : titles[1],
+            }
         });
     }
     return result;
