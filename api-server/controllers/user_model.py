@@ -27,11 +27,11 @@ def validate(user, db, temp = False):
             errors.append(413)
         else:
             if len(user['info']['art_fields']) < 0:
-                errors.append(412)
+                errors.append(413)
             else:
                 for art_field in user['info']['art_fields']: # error
                     if 'code' not in art_field:
-                        errors.append(413)
+                        errors.append(463)
                     if 'title' not in art_field:
                         errors.append(414)
         if 'religion' not in user['info']: # error

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import authService from '../../libs/auth.js';
+import statics from '../../libs/statics.js';
 import Error from '../../utility/Error.js'
 import ImagesUploader from 'react-images-uploader';
 import 'react-images-uploader/styles.css';
@@ -53,6 +54,15 @@ class AuthRegister extends Component {
     }
     reader.readAsDataURL(file)
   }
+  get_tags_array = (id) => {
+    var div = document.getElementById(id);
+    var chipsArray = div.getElementsByClassName('chip')
+    var result = []
+    for(var i=0; i<chipsArray.length; i++){
+      result.push(chipsArray[i].innerHTML.split('<i')[0]);
+    }
+    return result;
+  }
   register =(event)=>{
     var firstname = document.getElementById("reg_firstname").value;
     var lastname = document.getElementById("reg_lastname").value;
@@ -61,7 +71,24 @@ class AuthRegister extends Component {
     var rep_password = document.getElementById("reg_rep_password").value;
     var nickname = document.getElementById("reg_artname").value;
     var fathername = document.getElementById("reg_fathername").value;
+    var artFields = statics.get_art_fields_list_by_title(this.get_tags_array('art-fields'));
+    
+    var religion = statics.get_religion_by_title(document.getElementById('religion').value);
 
+    var habitate_place = document.getElementById('habitate_place').value;
+    var phone = document.getElementById('phone').value;
+    var cellphone = document.getElementById('cellphone').value;
+    var address = document.getElementById('address').value;
+
+    var educations = statics.get_educations_list_by_title(this.get_tags_array('educations'));
+
+    var birth_day = document.getElementById('birth_day').value;
+    var birth_month = document.getElementById('birth_month').value;
+    var birth_year = document.getElementById('birth_year').value;
+    var birth_place = document.getElementById('birth_place').value;
+
+    console.log(artFields);
+    return;
     /* error handling in front end.
        becuase it's better to handle all errors
        in front end before sending any request
