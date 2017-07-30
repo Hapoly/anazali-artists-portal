@@ -21,6 +21,12 @@ def register():
     profile = request.files['profile']
     scan = request.files['scan']
     user_info = request.form['info']
+
+    if not allowed_file(profile.filename) or not allowed_file(scan.filename):
+        return json.dumps({
+            'result' : 'failed',
+            'errors' : [501]
+            })
     # weak. need to fix (debug)
     profile_filename = secure_filename(profile.filename)
     profile.save(os.path.join(app.config['UPLOAD_FOLDER'], profile_filename))
@@ -35,7 +41,10 @@ def register():
     return 'got!'
     if request.json == None:
         return '-Error'
-    return JSONEncoder().encode(auth.register(request.json, db))
+    return JSONEncoder().encode(auth.register(request.json, {
+            'id_card' : scan_filename,
+            'profile' : profile_filename
+        }db))
 
 @app.route("/login", methods=['POST'])
 @cross_origin()
