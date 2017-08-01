@@ -85,14 +85,11 @@ var validateForm = (context) => {
     var birth_year = document.getElementById('birth_year').value;
     if(birth_year === '')
       frontErrorList.push(434);
-    else if(birth_year < 1 || birth_year > 12)
-        frontErrorList.push(434);
 
     var birth_place = document.getElementById('birth_place').value;
     if(birth_place === '')
       frontErrorList.push(437);
 
-    console.log(frontErrorList);
     return {
         errors : frontErrorList,
         info : {
