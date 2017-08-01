@@ -36,13 +36,6 @@ var validateForm = (context) => {
     var artFields = statics.get_art_fields_list_by_title(context.get_tags_array('art-fields'));
     if(artFields.length == 0)
       frontErrorList.push(413);
-    
-
-    var religion = (document.getElementById('religion').value);
-    if(religion == '')
-        frontErrorList.push(415);
-    else
-        religion = statics.get_religion_by_title(religion);
 
     var habitate_length = document.getElementById("habitate_years").value;
     if(habitate_length === '')
@@ -52,8 +45,15 @@ var validateForm = (context) => {
     if(religion == '')
         frontErrorList.push(422);
     else
+        habitate_place = statics.get_habitate_place_by_title(habitate_place);
+
+    var religion = (document.getElementById('religion').value);
+    if(religion == '')
+        frontErrorList.push(415);
+    else
         religion = statics.get_religion_by_title(religion);
 
+    
     var phone = document.getElementById('phone').value;
     if(phone === '')
       frontErrorList.push(419);
@@ -90,13 +90,27 @@ var validateForm = (context) => {
     if(birth_place === '')
       frontErrorList.push(437);
 
+    if(!context.state.id_card_pic.uploaded){
+      frontErrorList.push(438);
+      return {
+        errors : frontErrorList
+      }
+    }
+
+    if(!context.state.profile_pic.uploaded){
+      frontErrorList.push(439);
+      return {
+        errors : frontErrorList
+      }
+    }
+    
     return {
         errors : frontErrorList,
         info : {
             email: email,
             password : password,
-            firstname : firstname,
-            lastname : lastname,
+            first_name : firstname,
+            last_name : lastname,
             type : 'REGU',
             info : {
                 father_name : fathername,
@@ -120,8 +134,8 @@ var validateForm = (context) => {
                     place : birth_place
                 },
                 pictures:{
-                    id_card : '',
-                    profile : ''
+                    id_card : context.state.id_card_pic.file,
+                    profile : context.state.profile_pic.file,
                 }
             }
         }

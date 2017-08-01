@@ -13,7 +13,7 @@ def register(data, pictures, db):
         old_user_with_same_email = db['users'].find_one({'email' : data['email']})
         if old_user_with_same_email != None:
             return {
-                'result' : 'success',
+                'result' : 'failed',
                 'errors' : [105]
             }
         

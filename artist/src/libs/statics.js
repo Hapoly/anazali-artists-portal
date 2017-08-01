@@ -69,7 +69,7 @@ var get_habitate_place_by_title = (title) => {
         "جیرده":        7,
     };
     return {
-        id : data[title],
+        code : data[title],
         title : title
     }
 }
@@ -84,7 +84,7 @@ var get_religion_by_title = (title) => {
         "رضا":          6,
     };
     return {
-        id : data[title],
+        code : data[title],
         title : title
     }
 }

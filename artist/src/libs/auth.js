@@ -22,7 +22,31 @@ var userCheck = (userName, password, callBack) => {
     xhr.send(data);
 }
 
-var userRegister = (data, on_error_callback, on_success_callback) => {
+var userRegister = (input, on_error_callback, on_success_callback) => {
+    var data = new FormData();
+    data.append("profile", input.info.pictures.profile);
+    data.append("info", JSON.stringify(input));
+    data.append("scan", input.info.pictures.id_card);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+    console.log('loading to send');
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+        console.log(this.responseText);
+        var res = JSON.parse(this.responseText);
+        if(res.result === 'failed'){
+            on_error_callback(res.errors);
+        }else{
+            on_success_callback(res.info);
+        }
+    }
+    });
+
+    xhr.open("POST", "http://94.23.171.142:5000/register");
+
+    xhr.send(data);
+    /*
     var data = new FormData();
     data.append("profile", data.profile);
     data.append("info", JSON.stringify(data.info));
@@ -41,6 +65,7 @@ var userRegister = (data, on_error_callback, on_success_callback) => {
         }
     }
     });
+    */
 }
 var userGetInformation = (userName) => {
     return false;

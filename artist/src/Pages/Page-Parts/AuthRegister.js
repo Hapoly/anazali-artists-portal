@@ -70,6 +70,7 @@ class AuthRegister extends Component {
        in front end before sending any request
     */
     var results = validateForm(this);
+
     var frontErrorList = results.errors;
 
     if(frontErrorList.length > 0){
@@ -78,8 +79,7 @@ class AuthRegister extends Component {
         });
       return;
     }
-    console.log(results.info);
-    return;
+
     authService.userRegister(results.info, 
       (errors) => {
         this.props.component.setState({
@@ -112,40 +112,40 @@ class AuthRegister extends Component {
 
             <div className="row"> 
               <div className="input-field col m6 s12 right">
-                <input  id="reg_firstname" type="text" value="علیرضا" className="validate"/>
+                <input  id="reg_firstname" type="text" className="validate"/>
                 <label for="reg_firstname">* نام</label>
               </div>
               <div className="input-field col m6 s12 right">
-                <input id="reg_lastname" type="text" value="دربندی" className="validate"/>
+                <input id="reg_lastname" type="text" className="validate"/>
                 <label for="reg_lastname">* نام خانوادگی</label>
               </div>
             </div>
 
             <div className="row"> 
               <div className="input-field col s12 m12">
-                <input  id="reg_email" type="email" value="darbandi1996@gmail.com" className="validate"/>
+                <input  id="reg_email" type="email" className="validate"/>
                 <label for="reg_email">* آدرس ایمیل</label>
               </div> 
             </div>
 
             <div className="row"> 
               <div className="input-field col m6 s12 right">
-                <input  id="reg_password" type="password" value="reza1996" className="validate"/>
+                <input  id="reg_password" type="password" className="validate"/>
                 <label for="reg_password">* کلمه عبور</label>
               </div> 
               <div className="input-field col m6 s12 right">
-                <input id="reg_rep_password" type="password" value="reza1996" className="validate"/>
+                <input id="reg_rep_password" type="password" className="validate"/>
                 <label for="reg_rep_password">* تکرار کلمه عبور</label>
               </div>
             </div>
 
             <div className="row"> 
               <div className="input-field col m6 s12 right">
-                <input  id="reg_fathername" type="text" value="بهرام" className="validate"/>
+                <input  id="reg_fathername" type="text" className="validate"/>
                 <label for="reg_fathername">* نام پدر</label>
               </div>
               <div className="input-field col m6 s12 right">
-                <input id="reg_artname" type="text" value="صمیم" className="validate"/>
+                <input id="reg_artname" type="text" className="validate"/>
                 <label for="reg_artname">* نام هنری</label>
               </div>
             </div>
@@ -160,7 +160,7 @@ class AuthRegister extends Component {
             </div>
             <div className="row">
               <div className="input-field col m6 s12 right">
-                <input id="habitate_years" type="number" value="6" className="validate"/>
+                <input id="habitate_years" type="number" className="validate"/>
                 <label for="habitate_years">* سال های سکونت</label>
               </div>
               <div className="input-field col m6 s12 right">
@@ -170,17 +170,17 @@ class AuthRegister extends Component {
             </div>
             <div className="row"> 
               <div className="input-field col m6 s12 right">
-                <input  id="phone" type="text" value="01333250286" className="validate"/>
+                <input  id="phone" type="text" className="validate"/>
                 <label for="phone">* شماره تماس ثابت</label>
               </div>
               <div className="input-field col m6 s12 right">
-                <input id="cellphone" type="text" value="09126720496" className="validate"/>
+                <input id="cellphone" type="text" className="validate"/>
                 <label for="cellphone">* شماره همراه</label>
               </div>
             </div>
             <div className="row"> 
               <div className="input-field col m12 s12 right">
-                <input id="address" type="text" value="رشت معلم خیابان فلاحتی" className="validate"/>
+                <input id="address" type="text" className="validate"/>
                 <label for="address">* آدرس</label>
               </div>
             </div>
@@ -189,19 +189,19 @@ class AuthRegister extends Component {
             </div>
             <div className="row"> 
               <div className="input-field col m3 s6 right">
-                <input  id="birth_day" type="number" min="1" value="8" max="30" className="validate"/>
+                <input  id="birth_day" type="number" min="1" className="validate"/>
                 <label for="birth_day">* روز تولد</label>
               </div>
               <div className="input-field col m3 s6 right">
-                <input id="birth_month" type="number" min="1" max="12" value="11" className="validate"/>
+                <input id="birth_month" type="number" min="1" max="12" className="validate"/>
                 <label for="birth_month">* ماه تولد</label>
               </div>
               <div className="input-field col m3 s6 right">
-                <input id="birth_year" type="number" min="1300" value="1374" max="1400" className="validate"/>
+                <input id="birth_year" type="number" min="1300" className="validate"/>
                 <label for="birth_year">* سال تولد</label>
               </div>
               <div className="input-field col m3 s6 right">
-                <input id="birth_place" type="text" value="رشت" className="validate"/>
+                <input id="birth_place" type="text" className="validate"/>
                 <label for="birth_place">* محل تولد</label>
               </div>
             </div>
