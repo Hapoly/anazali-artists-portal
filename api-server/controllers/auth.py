@@ -11,7 +11,7 @@ def register(data, pictures, db):
     validate_result = user_model.validate(data, db)
     if validate_result['result']:
         old_user_with_same_email = db['users'].find_one({'email' : data['email']})
-        if old_user_with_same_email not None:
+        if old_user_with_same_email != None:
             return {
                 'result' : 'success',
                 'errors' : [105]
