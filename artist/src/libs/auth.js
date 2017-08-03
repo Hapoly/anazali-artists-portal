@@ -1,4 +1,4 @@
-var userCheck = (userName, password, callBack) => {
+var userCheck = (userName, password, on_success, on_failed, on_pending) => {
     /* check username and password progress */
     var data = JSON.stringify({
     "password": password,
@@ -12,7 +12,12 @@ var userCheck = (userName, password, callBack) => {
         if (this.readyState === 4) {
             console.log(this.responseText);
             var res = JSON.parse(this.responseText);
-            callBack(res);
+            if(res.result == 'success')
+                on_success(res.info);
+            else if(res.result == 'failed')
+                on_failed();
+            else if(res.result == 'pending')
+                on_pending();
         }
     });
 

@@ -42,25 +42,31 @@ def login(data, db):
         'password' : hashed_password
     })
 
-    token_string = hashlib.sha256(bytes('{0}:{1}'.format(data['email'], data['password'])
-        , encoding='utf-8')).hexdigest()
     if user != None:
-        db['users'].update({'email' : data['email']},
-            {'$set' : {
-                'token' : {
-                    'token_string' : token_string,
-                    'expire' : time.time() + (3600 * 24)
-                }
-            }})
-        user = db['users'].find_one({
-            'email' : data['email'],
-            'password' : hashed_password
-        })
-        
-        return {
-            'result' : 'success',
-            'user' : user
-        }
+        if user['status']['code'] == '0':
+            user = db['users'].find_one({
+                'email' : data['email'],
+                'password' : hashed_password
+            })
+            
+            return {
+                'result' : 'pedning',
+                'user' : user
+            }
+        elif user['status']['code'] == '1':
+            user = db['users'].find_one({
+                'email' : data['email'],
+                'password' : hashed_password
+            })
+            
+            return {
+                'result' : 'success',
+                'user' : user
+            }
+        else:
+            return {
+                'result' : 'failed'
+            }
     else:
         return {
             'result' : 'failed'
