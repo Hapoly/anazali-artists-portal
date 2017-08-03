@@ -10,7 +10,8 @@
     "react-router": "3.0.0",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
-    "react-simple-cookie-store": "^1.0.8"
+    "react-simple-cookie-store": "^1.0.8",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
