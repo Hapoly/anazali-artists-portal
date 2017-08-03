@@ -22,7 +22,7 @@ def register(data, pictures, db):
             "title": "درخواست داده شده برای ثبت نام"
         }
 
-        data['passwrod'] = hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest()
+        data['password'] = hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest()
         
         user_id = db['users'].insert(data)
         user_information = db['users'].find_one({'_id' : ObjectId(user_id)})
