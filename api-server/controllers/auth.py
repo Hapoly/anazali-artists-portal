@@ -43,6 +43,7 @@ def login(data, db):
     })
 
     if user != None:
+        print(user['status'])
         if user['status']['code'] == '0':
             user = db['users'].find_one({
                 'email' : data['email'],
