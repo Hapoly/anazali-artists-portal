@@ -14,19 +14,19 @@ class AuthLogin extends Component {
   login = (event)=>{
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
-    authService.userCheck(userName, password, (result) => {
-      if (result.result === 'success'){
-          cookies.set('user', result.user, { path: '/' });
-          cookies.set('email', userName, { path: '/' });
-          cookies.set('password', password, { path: '/' });
-          window.location = "http://localhost:3000/dashboard";
-      }else{
-        console.log(result);
-         this.props.component.setState({
-          errors : <Error errorList={[112]} />
-        });
-           
-      }
+    authService.userCheck(userName, password, (info) => {
+      cookies.set('user', info, { path: '/' });
+      cookies.set('email', userName, { path: '/' });
+      cookies.set('password', password, { path: '/' });
+      window.location = "http://localhost:3000/dashboard";
+    }, () => {
+      this.props.component.setState({
+        errors : <Error errorList={[112]} />
+      });
+    }, () => {
+      this.props.component.setState({
+        errors : <Error errorList={[113]} />
+      });
     });    
   }
 /* this is the main script render for Auth componenet */
