@@ -38,15 +38,13 @@ def register(data, pictures, db):
 
 def login(data, db):
     hashed_password = hashlib.sha256(bytes(data['password'], encoding='utf-8')).hexdigest()
-    
     user = db['users'].find_one({
         'email' : data['email'],
         'password' : hashed_password
     })
 
     if user != None:
-        print(user['status'])
-        if user['status']['code'] == '0':
+        if user['status']['code'] == 0:
             user = db['users'].find_one({
                 'email' : data['email'],
                 'password' : hashed_password
@@ -56,7 +54,7 @@ def login(data, db):
                 'result' : 'pedning',
                 'user' : user
             }
-        elif user['status']['code'] == '1':
+        elif user['status']['code'] == 1:
             user = db['users'].find_one({
                 'email' : data['email'],
                 'password' : hashed_password
