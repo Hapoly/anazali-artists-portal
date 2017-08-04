@@ -12,6 +12,9 @@ class AuthLogin extends Component {
   }
 
   login = (event)=>{
+    this.props.component.setState({
+      errors : ''
+    })
     var userName= document.getElementById("login_userName").value;
     var password = document.getElementById("login_password").value;
     authService.userCheck(userName, password, (info) => {

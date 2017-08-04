@@ -10,13 +10,12 @@ var userCheck = (userName, password, on_success, on_failed, on_pending) => {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
             var res = JSON.parse(this.responseText);
             if(res.result == 'success')
                 on_success(res.user);
             else if(res.result == 'failed')
                 on_failed();
-            else if(res.result == 'pending')
+            else if(res.result == 'pedning')
                 on_pending();
         }
     });
