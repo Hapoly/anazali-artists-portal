@@ -47,7 +47,36 @@ const getLastAcceptedUsers = (email, password, on_response) => {
 		}
 	]
 }
+
+const getAllUsers = (email, password, offset, limit, filters, on_success, on_failed) => {
+	var data = JSON.stringify({
+		"email": email,
+		"password": password,
+		"offset": offset,
+		"limit": limit,
+		"filter": filters
+	});
+
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = false;
+
+	xhr.addEventListener("readystatechange", function () {
+		if (this.readyState === 4) {
+			var res = JSON.parse(this.responseText);
+			console.log(res);
+			if(res.result === 'success')
+				on_success(res.users);
+			else if(res.result === 'failed')
+				on_failed();
+		}
+	});
+
+	xhr.open("POST", "http://94.23.171.142:5000/users");
+	xhr.setRequestHeader("content-type", "application/json");
+	xhr.send(data);
+}
 module.exports = {
 	getNewSignUpRequests,
-	getLastAcceptedUsers
+	getLastAcceptedUsers,
+	getAllUsers,
 }

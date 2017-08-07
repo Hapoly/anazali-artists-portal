@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter ,Switch } from 'react-router-dom'
-import Auth 						from './Pages/Auth.js';
+import Auth 					from './Pages/Auth.js';
 import Dashboard 				from './Pages/Dashboard.js';
 import Messages 				from './Pages/Messages.js';
 import Artists 					from './Pages/Artists.js';
 import Events 					from './Pages/Events.js';
-import Artistdetail 		from './Pages/Artistdetail.js';
+import Artistdetail 			from './Pages/Artistdetail.js';
 import Reports 					from './Pages/Reports.js';
 import NoMatch 					from './Pages/NoMatch';
 
