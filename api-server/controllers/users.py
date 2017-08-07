@@ -31,8 +31,8 @@ def get_user_profile(data, db):
             }
         user = db['users'].find_one({'_id' : ObjectId(data['profile_id'])})
         user['info']['pictures'] = {
-            'id_card' : config['url'] + '/image/' + user['info']['pictures']['id_card'],
-            'profile' : config['url'] + '/image/' + user['info']['pictures']['profile'],
+            'id_card' : URL + '/image/' + user['info']['pictures']['id_card'],
+            'profile' : URL + '/image/' + user['info']['pictures']['profile'],
         }
         if permission == "ADMIN":
             # user type is admin
@@ -110,8 +110,8 @@ def get_users_list(data, db):
             
         for user in users:
             user['info']['pictures'] = {
-                'id_card' : config['url'] + '/image/' + user['info']['pictures']['id_card'],
-                'profile' : config['url'] + '/image/' + user['info']['pictures']['profile'],
+                'id_card' : URL + '/image/' + user['info']['pictures']['id_card'],
+                'profile' : URL + '/image/' + user['info']['pictures']['profile'],
             }
             user_list.append(user)
         return {
