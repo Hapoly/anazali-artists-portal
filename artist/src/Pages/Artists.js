@@ -30,12 +30,8 @@ class Artists extends Component {
         nickname:   ""
       },
       (users) => {
-        var userList = [
-        ];
-        for(var i=0; i<users.length; i++)
-          userList.push(<ProfileCard information={users[i]}/>);
         this.setState({
-          users : userList
+          users : users
         });
       },
       () => {
@@ -44,6 +40,11 @@ class Artists extends Component {
     )
     
   }
+
+  createArtistsCard = (artist) => {
+    return <ProfileCard information={artist}/>;
+  }
+
   render() {
     return (
     <div>
@@ -55,14 +56,14 @@ class Artists extends Component {
                 <div className="row">
                   <div className="col s12">
                     <ul className="tabs tabs-fixed-width">
-                      <li className="tab col s3"><a className="active black-text" href="#artistslist"s>هنرمندان</a></li>
+                      <li className="tab col s3"><a className="active black-text" href="#artistslist"s>تمام هنرمندان</a></li>
                       <li className="tab col s3"><a href="#registerreq" className="black-text">درخواست های ثبت نام</a></li>
                     </ul>
                   </div>
                   <div id="artistslist" className="col s12 top-buffer">
                     <div className="row">
                       <div className="col s12">
-                        {this.state.users}
+                        {this.state.users.map(this.createArtistsCard)}
                         <ul className="pagination">
                           <li className="disabled"><a href="#!"><i className="material-icons"> chevron_right</i></a></li>
                           <li className="active"><a href="#!">1</a></li>

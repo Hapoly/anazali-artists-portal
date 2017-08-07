@@ -22,20 +22,19 @@ class ProfileCard extends Component {
     switch(status.code){
       case 0:
         return (
-          <span class="new badge amber lighten-1" data-badge-caption="{status.title}"></span>
+          <span className="new badge amber lighten-1" data-badge-caption={status.title}></span>
         );
       case 1:
-        console.log('test');
         return (
-          <span class="new badge light-green" data-badge-caption="{status.title}"></span>
+          <span className="new badge light-green" data-badge-caption={status.title}></span>
         );
       case 2:
         return (
-          <span class="new badge grey lighten-1" data-badge-caption="{status.title}"></span>
+          <span className="new badge grey lighten-1" data-badge-caption={status.title}></span>
         );
       case 3:
         return (
-          <span class="new badge deep-orange accent-3" data-badge-caption="{status.title}"></span>
+          <span className="new badge deep-orange accent-3" data-badge-caption={status.title}></span>
         );
       
     }
@@ -55,15 +54,15 @@ class ProfileCard extends Component {
             <div className="card-content" >
               <div className="row">
                 <div className="col m6 s12">
-                  <p>حرفه‌های هنری:{this.props.information.info.art_fields.map(this.createArtFields)}</p>
+                  حرفه‌های هنری:{this.props.information.info.art_fields.map(this.createArtFields)}
                 </div>
                 <div className="col m6 s12">
-                  <p>تحصیلات:{this.props.information.info.educations.map(this.createEducations)}</p>
+                  تحصیلات:{this.props.information.info.educations.map(this.createEducations)}
                 </div>
               </div>
               <div className="row">
                 <div className="col m12 s12">
-                  <p>{this.statusBadget(this.props.information.status)}</p>
+                  {this.statusBadget(this.props.information.status)}
                 </div>
               </div>
             </div>

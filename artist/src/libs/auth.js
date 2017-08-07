@@ -15,7 +15,7 @@ var userCheck = (userName, password, on_success, on_failed, on_pending) => {
                 on_success(res.user);
             else if(res.result == 'failed')
                 on_failed();
-            else if(res.result == 'pedning')
+            else if(res.result == 'pending')
                 on_pending();
         }
     });

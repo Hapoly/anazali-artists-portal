@@ -105,6 +105,10 @@ def get_users_list(data, db):
         user_list = []
             
         for user in users:
+            user['info']['pictures'] = {
+                'id_card' : config['url'] + '/image/' + user['info']['pictures']['id_card'],
+                'profile' : config['url'] + '/image/' + user['info']['pictures']['profile'],
+            }
             user_list.append(user)
         return {
             "result" : "success",
