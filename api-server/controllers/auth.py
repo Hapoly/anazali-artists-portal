@@ -45,8 +45,8 @@ def login(data, db):
 
     if user != None:
         user['info']['pictures'] = {
-            'id_card' : URL + '/image/' + user['info']['pictures']['id_card'],
-            'profile' : URL + '/image/' + user['info']['pictures']['profile'],
+            'id_card' : 'http://94.23.171.142:5000' + '/image/' + user['info']['pictures']['id_card'],
+            'profile' : 'http://94.23.171.142:5000' + '/image/' + user['info']['pictures']['profile'],
         }
         if user['status']['code'] == 0:
             user = db['users'].find_one({

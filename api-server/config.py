@@ -8,7 +8,6 @@ from controllers import *
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = 'uploads'
-URL = 'http://94.23.171.142:5000'
 
 ALLOWED_EXTENSIONS = set(['jpg', 'jpeg'])
 def allowed_file(filename):
