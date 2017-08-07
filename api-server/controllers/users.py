@@ -30,6 +30,10 @@ def get_user_profile(data, db):
                 "errors" : 201
             }
         user = db['users'].find_one({'_id' : ObjectId(data['profile_id'])})
+        user['info']['pictures'] = {
+            'id_card' : config['url'] + '/image/' + user['info']['pictures']['id_card'],
+            'profile' : config['url'] + '/image/' + user['info']['pictures']['profile'],
+        }
         if permission == "ADMIN":
             # user type is admin
             if user == None:
